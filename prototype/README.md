@@ -32,3 +32,9 @@ Nhập trong ô “Tin nhắn của bạn”, bấm Gửi hoặc Enter (Shift+En
 - Câu chưa hiểu → hỏi lại với các lựa chọn, không đoán hành động.
 
 Hỗ trợ tiếng Việt có/không dấu bằng từ khoá, không phải hiểu ngôn ngữ bằng AI. Mỗi tin mới xoá duyệt checkbox cũ để tránh đổi vé sau khi khách đổi ý. Lịch sử chỉ nằm trong tab, xoá khi reset/reload. Không API key. [Ảnh chat](screenshots/03-simulated-chat.jpg).
+
+## Phát demo như cuộc chat của khách
+
+Chọn ca ở bên trái hoặc bấm **Phát lại cuộc hội thoại**. Lời khách tự xuất hiện từng đoạn trong ô nhập, gửi thành bong bóng “Khách hàng · Minh An”, rồi hiện trạng thái trợ lý kiểm tra và phản hồi mô phỏng. Thẻ chuyến, giữ chỗ, review và bàn giao nằm ngay trong khung chat. Có thể gõ tiếp sau khi trợ lý trả lời. Chọn ca mới huỷ hiệu ứng cũ và reset toàn bộ fixture; không làm lẫn hành động giữa các ca.
+
+Hiệu ứng gõ và thời gian trả lời chỉ phục vụ trình diễn, không phải một model đang suy luận. Bước đổi vé vẫn cần checkbox và nút xác nhận; chat không thể tự thực thi đổi/hoàn.

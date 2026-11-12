@@ -24,3 +24,7 @@ Giới hạn: không thử backend, tồn chỗ thật, staff thật, hoặc AI 
 ## Bổ sung chat mô phỏng
 
 Đã bấm trình duyệt: gửi “Cho hai me con bay toi nay” → báo thiếu 2 chỗ; Enter gửi “Thôi hoàn tiền đi mà khoan” → chưa gửi hoàn; giữ BM 205 rồi gửi “đồng ý đổi đi” → nút đổi vẫn disabled. Có lịch sử khách/trợ lý và nhãn không AI thật. Ảnh `screenshots/03-simulated-chat.jpg`. Kiểm tra classifier bằng Node cho câu có/không dấu, nhiều chuyến, phủ định, ngoài phạm vi và injection; không có lời gọi model.
+
+## Bổ sung phát hội thoại demo
+
+Đã quan sát trạng thái “Khách đang nhập tin nhắn”, ô input tạm khoá; sau đó lời khách và phản hồi mô phỏng xuất hiện. Thử S1 → giữ BM 205, review vẫn yêu cầu xác nhận. Chuyển nhanh S5 sang S4 khi đang gõ không để lại phản hồi S5 hoặc chuyển người sai ca. S4 → tìm hiểu hoàn hiện bàn giao trong chat. S2 chạy xong rồi gõ “Chọn BM 205” nhận phản hồi theo chuyến, không tự đổi vé. Đã cập nhật ảnh 01/02/03 cho bố cục chat mới. Kiểm tra trực quan không chồng chữ ở kích thước chụp.
