@@ -20,7 +20,7 @@ const demoInputs={
  soldout:'Mình muốn chọn PA 201 cho hai mẹ con, còn chỗ không?'
 };
 // Keep the decision controls inside the chat rather than in a separate output panel.
-for(const element of [$('flights'),$('hold'),$('review'),document.querySelector('.actions'),$('support')])$('chat-workflow').append(element);
+for(const element of [$('hold'),$('review'),document.querySelector('.actions'),$('support')])$('chat-workflow').append(element);
 function busy(value,label='Tourist đang kiểm tra đặt chỗ…'){
  state.busy=value;$('chat-input').disabled=value;
  $('chat-form').querySelector('button').disabled=value;
@@ -37,6 +37,7 @@ function playDemo(){
    pendingReply(()=>{
     bubble('activity','Đã kiểm tra đặt chỗ TRV-7Q2K · 2 hành khách · chính sách YmirAirline (dữ liệu giả).');
     say(messages[state.scenario]);
+    if(['ambiguous','seats','normal','expired','soldout'].includes(state.scenario))showFlightChoices();
     if(state.scenario==='wrong'){state.changed=true;log('Fixture lỗi S5: đã đổi nhầm sang PA 201, miễn phí còn 0.');handoff('Khách báo đổi nhầm; cần nhân viên xác minh phương án khắc phục.');}
     if(state.scenario==='split')handoff('Tách đặt chỗ: PA 217 lúc 21:00 cho Titan Thủy Tổ; hoàn vé Titan Tiến Công. Cần xác minh trẻ có người chăm sóc, điều kiện tách/hoàn và duyệt riêng. Chưa thực hiện thao tác nào.');
     if(['child','name'].includes(state.scenario))handoff(state.scenario==='child'?'Trẻ 5 tuổi bay một mình.':'Yêu cầu đổi tên hành khách.');
@@ -74,17 +75,22 @@ function active(){return !state.changed && !state.support && !state.busy;}
 function clearHold(){state.hold=null;state.expires=0;$('hold').hidden=true;$('review').hidden=true;$('consent').checked=false;$('confirm').disabled=true;}
 function render(){
  $('flights').replaceChildren();
- for(const f of flights){const seats=state.scenario==='soldout'&&f.id==='PA 201'?0:f.seats;const card=document.createElement('div');card.className='flight'+(seats<2?' unavailable':'');const info=document.createElement('p');const title=document.createElement('strong');title.textContent=f.id+' · '+f.time;const detail=document.createElement('small');detail.textContent=f.date+'/2026 · Paradis → Marley · còn '+seats+' chỗ';info.append(title,detail);const b=document.createElement('button');b.textContent=seats<2?'Không đủ 2 chỗ':'Giữ 2 chỗ';b.disabled=seats<2||!active();b.addEventListener('click',()=>hold(f));card.append(info,b);$('flights').append(card);}
+ $('flights').hidden=!state.showFlights;
+ if(state.showFlights){
+  const heading=document.createElement('h3');heading.textContent='Các chuyến thay thế';$('flights').append(heading);
+  for(const f of flights){const seats=state.scenario==='soldout'&&f.id==='PA 201'?0:f.seats;const card=document.createElement('div');card.className='flight';if(seats<2)card.classList.add('unavailable');const info=document.createElement('p');const title=document.createElement('strong');title.textContent=f.id+' · '+f.time;const detail=document.createElement('small');detail.textContent=f.date+'/2026 · Paradis → Marley · còn '+seats+' chỗ';info.append(title,detail);const b=document.createElement('button');b.textContent=seats<2?'Không đủ 2 chỗ':'Giữ 2 chỗ';b.disabled=seats<2||!active();b.addEventListener('click',()=>hold(f));card.append(info,b);$('flights').append(card);}
+ }
  $('refund').disabled=!active();$('handoff').disabled=state.support||state.busy;
 }
+function showFlightChoices(){state.showFlights=true;render();$('chat-history').append($('flights'));$('chat-history').scrollTop=$('chat-history').scrollHeight;}
 function hold(f){if(!active()||f.seats<2||(state.scenario==='soldout'&&f.id==='PA 201'))return;bubble('activity','Đang giữ 2 chỗ trên '+f.id+' trong mô phỏng…');clearHold();state.hold=f;state.expires=Date.now()+20*60*1000;$('hold').hidden=false;$('review').hidden=false;$('summary').replaceChildren();importantText($('summary'),f.id+' · '+f.date+'/2026 · '+f.time+' · Paradis → Marley. Titan Thủy Tổ (67 tuổi) và Titan Tiến Công (5 tuổi). Đổi miễn phí lần duy nhất, theo dữ liệu dựng.');say('Đã giữ tạm 2 chỗ trên '+f.id+'. Chưa đổi vé. Hãy kiểm tra chuyến, ngày giờ và cả hai hành khách.');log('giu_cho_chuyen_moi: '+f.id+' / 2 hành khách / 20 phút. Chưa gọi doi_chuyen_bay.');tick();}
 function expire(){if(!state.hold)return;clearHold();say('Giữ chỗ đã hết hạn. Chưa đổi vé. Hãy chọn lại để kiểm tra chỗ và xác nhận mới.');log('Giữ chỗ hết hạn; chặn đổi vé bằng xác nhận cũ.');}
 function tick(){if(!state||!state.hold)return;const remaining=Math.ceil((state.expires-Date.now())/1000);if(remaining<=0){expire();return;}$('timer').textContent=String(Math.floor(remaining/60)).padStart(2,'0')+':'+String(remaining%60).padStart(2,'0');}
 function handoff(reason){if(state.support)return;clearHold();state.support=true;$('support').hidden=false;$('support').textContent='④ Đã tạo yêu cầu chuyển nhân viên (mô phỏng). Nội dung: '+reason+' Kèm TRV-7Q2K, 2 hành khách, trạng thái vé và nhật ký. Chưa có người nhận, chưa có thời gian chờ được xác minh. Không hứa hoàn tác hay thời hạn xử lý. Không tự gửi hoàn vé.';bubble('activity',$('support').textContent);log('chuyen_nhan_vien: '+reason+' / mô phỏng, chưa có người nhận.');render();}
 function reset(){
  clearInterval(demoTimer);clearTimeout(demoTimer);if(apiController)apiController.abort();sessionVersion++;conversation=[];
- state={scenario:$('scenario').value,hold:null,expires:0,changed:false,support:false,busy:false};
- clearHold();$('support').hidden=true;$('log').replaceChildren();$('chat-history').replaceChildren();$('chat-input').value='';
+ state={scenario:$('scenario').value,hold:null,expires:0,changed:false,support:false,busy:false,showFlights:false};
+ clearHold();$('support').hidden=true;$('log').replaceChildren();$('chat-history').replaceChildren($('flights'));$('chat-input').value='';
  log('tra_cuu_dat_cho: fixture giả TRV-7Q2K, không phải API trực tiếp.');
  bubble('assistant','Chào Titan Thủy Tổ, tôi là trợ lý mô phỏng của Tourist. Tôi hỗ trợ đặt lại vé cho chuyến bay PA 213 bị huỷ do Rung chấn.\n\nThông tin chuyến bay của bạn:\nMã đặt chỗ: TRV-7Q2K\nTên HK 1: Titan Thủy Tổ · 67 tuổi\nTên HK 2: Titan Tiến Công · 5 tuổi\n\nTôi chỉ đổi vé khi bạn duyệt rõ chuyến với cả hai hành khách.');
  render();playDemo();
@@ -100,7 +106,8 @@ function sendChat(event){
  event.preventDefault();if(state.busy)return;const text=$('chat-input').value.trim();if(!text)return;bubble('user',text);$('chat-input').value='';
  // A new message may change intent: require fresh approval after any chat turn.
  $('consent').checked=false;$('confirm').disabled=true;
- if($('chat-mode').value==='openai')askOpenAI();else pendingReply(()=>respondChat(text));
+ const intent=classifyChat(text);
+ if($('chat-mode').value==='openai')askOpenAI(intent);else pendingReply(()=>respondChat(text));
 }
 function respondChat(text){
  const intent=classifyChat(text);
@@ -113,14 +120,15 @@ function respondChat(text){
  if(intent.type==='refund'){say(messages.refund+' Nơi nhận và thời gian hoàn chưa được xác minh. Bấm “Tìm hiểu hoàn vé” nếu muốn chuyển nhân viên; không có yêu cầu hoàn nào được gửi.');return;}
  if(intent.type==='status'){say('Chuyến gốc PA 213 ngày 12/11 lúc 19:00 đã huỷ do Rung chấn. '+(state.changed?'Vé đã đổi trong mô phỏng; xem kết quả và nhật ký.':state.hold?'Đang giữ tạm '+state.hold.id+', chưa đổi vé.':'Chưa đổi vé trong ca hiện tại.')+' Nguồn: fixture giả lúc 15:00 ngày 12/11/2026, không phải dữ liệu trực tiếp.');return;}
  if(!active()){say(state.changed?'Vé đã đổi trong mô phỏng; không thể tự đổi lần hai. Bấm chuyển nhân viên nếu cần sửa.':'Đã chuyển nhân viên trong mô phỏng. Tôi không tiếp tục thao tác vé khi đang chờ; chưa có thời gian nhận xác minh.');return;}
- if(intent.type==='flight'){const f=flights.find(f=>f.id===intent.flight);if(f.seats<2||(state.scenario==='soldout'&&f.id==='PA 201')){say('Chuyến '+f.id+' không đủ 2 chỗ trong dữ liệu hiện tại. Tôi không tự tách người lớn và trẻ em. Hãy chọn chuyến còn đủ chỗ.');return;}say('Bạn nhắc tới '+f.id+' · '+f.date+' · '+f.time+'. Nếu muốn chọn chuyến này, bấm “Giữ 2 chỗ” trên thẻ tương ứng, rồi kiểm tra và xác nhận riêng. Tin nhắn chưa đổi hoặc giữ vé.');return;}
- if(intent.type==='ambiguous'){say('Tôi chưa có xác nhận rõ chuyến, ngày và cả hai hành khách. Hãy chọn thẻ chuyến, giữ chỗ, rồi duyệt tại mục ③. Tin nhắn “đổi đi” hoặc “đồng ý” không tự đổi vé.');return;}
+ if(intent.type==='flights'){say('Đây là các chuyến thay thế theo dữ liệu mô phỏng. Mình chưa đổi hoặc giữ vé; hãy chọn chuyến muốn xem.');showFlightChoices();return;}
+ if(intent.type==='flight'){const f=flights.find(f=>f.id===intent.flight);if(f.seats<2||(state.scenario==='soldout'&&f.id==='PA 201')){say('Chuyến '+f.id+' không đủ 2 chỗ trong dữ liệu hiện tại. Tôi không tự tách người lớn và trẻ em. Hãy chọn chuyến còn đủ chỗ.');showFlightChoices();return;}say('Bạn nhắc tới '+f.id+' · '+f.date+' · '+f.time+'. Nếu muốn chọn chuyến này, bấm “Giữ 2 chỗ” trên thẻ tương ứng, rồi kiểm tra và xác nhận riêng. Tin nhắn chưa đổi hoặc giữ vé.');showFlightChoices();return;}
+ if(intent.type==='ambiguous'){say('Tôi chưa có xác nhận rõ chuyến, ngày và cả hai hành khách. Hãy chọn thẻ chuyến, giữ chỗ, rồi duyệt tại mục ③. Tin nhắn “đổi đi” hoặc “đồng ý” không tự đổi vé.');showFlightChoices();return;}
  say('Đây là chat mô phỏng theo quy tắc, tôi chưa hiểu chắc yêu cầu này. Bạn muốn xem chuyến, tìm hiểu hoàn vé hay chuyển nhân viên? Bạn cũng có thể chọn thẻ chuyến bên dưới. Chưa có vé nào bị thay đổi bởi tin nhắn.');
 }
 $('chat-form').addEventListener('submit',sendChat);
 $('chat-input').addEventListener('keydown',event=>{if(event.key==='Enter'&&!event.shiftKey&&!event.isComposing){event.preventDefault();$('chat-form').requestSubmit();}});
 
-async function askOpenAI(){
+async function askOpenAI(intent){
  const version=sessionVersion;apiController=new AbortController();const timeout=setTimeout(()=>apiController.abort(),45000);
  busy(true,'Tourist đang hỏi model OpenAI…');
  try{
@@ -128,6 +136,7 @@ async function askOpenAI(){
   const data=await result.json();if(version!==sessionVersion)return;
   if(!result.ok)throw new Error(data.error||'OpenAI chưa trả lời được.');
   bubble('activity','Phản hồi từ OpenAI · '+data.model+' · '+(data.response_id||'')+' · thao tác vé vẫn mô phỏng.');$('message').textContent=data.reply;bubble('ai',data.reply);
+  if(!state.changed&&!state.support&&['flights','flight','ambiguous'].includes(intent.type))showFlightChoices();
  }catch(error){if(version===sessionVersion)bubble('activity','Chưa nhận phản hồi AI: '+(error.name==='AbortError'?'Hết thời gian chờ.':error.message)+' Chưa thay đổi vé. Chạy python3 server.py; không nhập API key vào chat.');}
  finally{clearTimeout(timeout);if(version===sessionVersion)busy(false);}
 }
