@@ -1,27 +1,27 @@
 {
   "synthetic": true,
-  "source": "T3 course fixture; fictional Bay Mẫu airline",
+  "source": "Adapted T3 course fixture; fictional YmirAirline airline; passenger names, adult age, cancelled flight number and reason customized for demo",
   "now": "2026-11-12T15:00:00+07:00",
   "booking_id": "TRV-7Q2K",
   "booked_via": "app",
   "fare_class": "Phổ thông Tiết kiệm",
   "passengers": [
     {
-      "name": "Nguyễn Minh An",
-      "age": 34
+      "name": "Titan Thủy Tổ",
+      "age": 67
     },
     {
-      "name": "Nguyễn Gia Bình",
+      "name": "Titan Tiến Công",
       "age": 5
     }
   ],
   "original_flight": {
-    "number": "BM 213",
-    "origin": "Hà Nội",
-    "destination": "TP.HCM",
+    "number": "PA 213",
+    "origin": "Paradis",
+    "destination": "Marley",
     "departure": "2026-11-12T19:00:00+07:00",
     "status": "cancelled",
-    "reason": "weather_storm"
+    "reason": "rumbling"
   },
   "policy": {
     "free_changes": 1,
@@ -33,17 +33,17 @@
   },
   "alternatives": [
     {
-      "number": "BM 217",
+      "number": "PA 217",
       "departure": "2026-11-12T21:00:00+07:00",
       "seats_available": 1
     },
     {
-      "number": "BM 201",
+      "number": "PA 201",
       "departure": "2026-11-13T07:00:00+07:00",
       "seats_available": 9
     },
     {
-      "number": "BM 205",
+      "number": "PA 205",
       "departure": "2026-11-13T09:30:00+07:00",
       "seats_available": 4
     }
