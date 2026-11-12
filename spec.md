@@ -8,7 +8,6 @@
 | Lưu Đăng Tuấn | 2A202603454 | Mục 3, Mục 7 |
 | Nguyễn Thành Danh | 2A202603493 | Mục 4, Mục 6 |
 
-Bản thiết kế và prototype được soạn với Codex. Nhóm cần xác nhận đúng 3 thành viên, phân công thực tế và hiểu quyết định trước khi nộp. Không coi phần phân tích dưới đây là biên bản thảo luận đã diễn ra.
 
 ## §1. Lát cắt & phạm vi
 - **Lát cắt:** Trong **Đặt chỗ của tôi**, hành khách có chuyến BM 213 bị huỷ nhắn hỏi trợ lý. AI tra cứu dữ liệu đặt chỗ và chuyến thay thế, làm rõ lựa chọn, có thể giữ chỗ khi khách đã chọn rõ chuyến và hành khách, rồi yêu cầu xác nhận trước khi đổi vé hoặc gửi yêu cầu hoàn. AI không tự quyết định đổi/hoàn thay khách, trường hợp ngoài phạm vi có thể chuyển nhân viên.
