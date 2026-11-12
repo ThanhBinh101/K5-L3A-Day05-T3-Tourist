@@ -1,17 +1,17 @@
 {
   "synthetic": true,
-  "source": "T3 course fixture; fictional Bay Mẫu airline",
+  "source": "Adapted T3 course fixture; fictional Bay Mẫu airline; passenger names customized for demo",
   "now": "2026-11-12T15:00:00+07:00",
   "booking_id": "TRV-7Q2K",
   "booked_via": "app",
   "fare_class": "Phổ thông Tiết kiệm",
   "passengers": [
     {
-      "name": "Nguyễn Minh An",
+      "name": "Titan Thủy Tổ",
       "age": 34
     },
     {
-      "name": "Nguyễn Gia Bình",
+      "name": "Titan Tiến Công",
       "age": 5
     }
   ],
