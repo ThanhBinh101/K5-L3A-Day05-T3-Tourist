@@ -87,7 +87,7 @@ Hiện trạng thái chưa gửi. Khách không làm gì: không có yêu cầu 
 
 ## §5. Prototype
 
-[Chạy prototype](prototype/index.html) · HTML/CSS/JavaScript thuần · không cài package, không backend, không gọi AI thật. Giao diện gốc của nhóm, không sao chép mẫu giảng viên. Ca chính S1 “Ừ, đổi đi”, không phải ca “sáng mai”. S5 là ca phục hồi bổ sung. Dropdown là bộ chọn fixture; mỗi ca tự phát lời khách với hiệu ứng nhập, trạng thái trợ lý kiểm tra và phản hồi trong chat. Thẻ chọn chuyến, giữ chỗ, review và bàn giao nằm trong khung chat. Có nút phát lại; đổi ca huỷ hiệu ứng đang chạy. Có thêm ô chat nhập tự do với phản hồi theo từ khoá tiếng Việt có/không dấu, không dùng model; câu ngoài quy tắc được hỏi lại. Chat không trực tiếp giữ/đổi/hoàn vé, mỗi tin mới xoá xác nhận checkbox cũ. Tin báo đổi nhầm chỉ tạo chuyển người để kiểm tra, không tự ghi nhận đã đổi. Các hành động đổi, giữ và chuyển người đều chỉ chạy trong bộ nhớ trình duyệt; reload hoặc chọn ca sẽ reset, không có giao dịch ngoài.
+[Chạy prototype](prototype/index.html) · HTML/CSS/JavaScript thuần · không cài package, có backend Python local tuỳ chọn cho Responses API; chưa kiểm chứng lời gọi AI thật vì chưa có key. Giao diện gốc của nhóm, không sao chép mẫu giảng viên. Ca chính S1 “Ừ, đổi đi”, không phải ca “sáng mai”. S5 là ca phục hồi bổ sung. Dropdown là bộ chọn fixture; mỗi ca tự phát lời khách với hiệu ứng nhập, trạng thái trợ lý kiểm tra và phản hồi trong chat. Thẻ chọn chuyến, giữ chỗ, review và bàn giao nằm trong khung chat. Có nút phát lại; đổi ca huỷ hiệu ứng đang chạy. Có thêm ô chat nhập tự do với phản hồi theo từ khoá tiếng Việt có/không dấu, có chế độ quy tắc và chế độ OpenAI cho tin tự gõ; câu ngoài quy tắc ở chế độ mô phỏng được hỏi lại. Chat không trực tiếp giữ/đổi/hoàn vé, mỗi tin mới xoá xác nhận checkbox cũ. Tin báo đổi nhầm chỉ tạo chuyển người để kiểm tra, không tự ghi nhận đã đổi. Các hành động đổi, giữ và chuyển người đều chỉ chạy trong bộ nhớ trình duyệt; reload hoặc chọn ca sẽ reset, không có giao dịch ngoài.
 
 ![Ảnh 1 — review có đánh số](prototype/screenshots/01-review.jpg)
 
@@ -116,3 +116,7 @@ Kịch bản 4 phút: 30 giây giới thiệu huỷ do Rung chấn và hai ngư�
 Gợi ý chia ba phần: người A giải thích rủi ro, người B bấm prototype và UX, người C giải thích mức tự chủ và ca lạ. Chỉ ghi tên sau khi nhóm thực sự nhận việc.
 
 **Ca lạ thực tế tại demo:** chưa diễn ra; nhóm bổ sung tin người xem, phản ứng prototype, điểm cần đổi sau demo. Ca hết hạn/hết chỗ đã được tác giả tự thử, không giả làm ca do TA đưa. Nếu gặp input ngoài bộ ca: nói rõ giới hạn mô phỏng, trình bày bước hỏi rõ/chuyển người theo §4; không khẳng định có AI hiểu input tuỳ ý.
+
+### Bổ sung chế độ AI thật
+
+Ô nhập được giữ lại. Chọn OpenAI sẽ gọi backend `server.py`, mặc định gpt-5.4-mini. API key chỉ nằm trong môi trường server. Model nhận fixture giả, trạng thái UI và tối đa 16 tin gần nhất để tư vấn; không có quyền tool đổi/hoàn. Các nút thao tác vẫn mô phỏng. Ca tự phát không gọi API. Chưa có bằng chứng lời gọi AI thật, chưa yêu cầu điểm bonus; cần chạy với key và ghi nhận phản hồi thực tế trước khi nộp.

@@ -7,7 +7,7 @@ Thiết kế trợ lý đổi chuyến khi chuyến bị huỷ: AI tìm và gi�
 - [Cách chạy và bấm thử](prototype/README.md)
 - [Kết quả kiểm tra](prototype/QA.md)
 
-Có ô chat mô phỏng để gõ câu hỏi, hỗ trợ tiếng Việt có/không dấu và phản hồi theo quy tắc. Không cần API key hay cài dependency. Không AI thật, không kết nối hãng bay. GitHub hiển thị mã HTML; để bấm giao diện hãy mở file local hoặc chạy server theo hướng dẫn.
+Có ô chat mô phỏng để gõ câu hỏi, hỗ trợ tiếng Việt có/không dấu và phản hồi theo quy tắc. Không cần API key hay cài dependency. Có thêm chế độ OpenAI qua backend local; xem hướng dẫn trong prototype/README.md. Không kết nối hãng bay. GitHub hiển thị mã HTML; để bấm giao diện hãy mở file local hoặc chạy server theo hướng dẫn.
 
 ![Prototype review](prototype/screenshots/01-review.jpg)
 

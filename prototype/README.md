@@ -42,3 +42,20 @@ Hiệu ứng gõ và thời gian trả lời chỉ phục vụ trình diễn, kh
 ## Bối cảnh AOT
 
 Biến thể giả tưởng: YmirAirline, Paradis → Marley, PA 213 huỷ do Rung chấn; các chuyến thay thế PA 217, PA 201, PA 205. Mã PA chỉ để trình diễn, không tuyên bố là mã hãng đăng ký. Theme lấy cảm hứng hồ sơ quân đoàn: xanh quân phục, giấy cũ, viền kim loại, cảnh báo đỏ. Bong bóng khách vẫn xanh, trợ lý trắng, hoạt động vàng.
+
+## Chat với OpenAI thật
+
+Tại thư mục repo, dùng Python 3.10+ (không cần cài thư viện):
+
+```bash
+read -s 'OPENAI_API_KEY?OpenAI API key: '; echo
+export OPENAI_API_KEY
+export OPENAI_MODEL=gpt-5.4-mini
+python3 server.py
+```
+
+Cú pháp nhập key trên dành cho zsh của macOS. Key chỉ ở biến môi trường, không paste vào chat hoặc commit. Server không tự đọc `.env`. Mở http://127.0.0.1:8000, chọn **OpenAI · model thật**, rồi gõ tin nhắn. Không mở file HTML trực tiếp cho chế độ OpenAI. Model tư vấn bằng Responses API; không được thực thi đổi/hoàn. Nút duyệt, giữ chỗ và chuyển người vẫn mô phỏng trong trình duyệt. Dropdown ca tự phát luôn là kịch bản dựng, không dùng API; chỉ tin tự gõ ở chế độ OpenAI mới gọi model.
+
+Model mặc định `gpt-5.4-mini`; đổi bằng `OPENAI_MODEL` nếu tài khoản có quyền model khác. Giá tham khảo theo tài liệu chính thức: $0.75/1M input tokens và $4.50/1M output tokens; xem https://developers.openai.com/api/docs/models/gpt-5.4-mini trước khi dùng. Cần key có quyền model và quota. Giới hạn 16 tin gần nhất, output 700 token, timeout 40 giây; lỗi API hiện rõ, không giả làm phản hồi AI. Không có key thì vẫn chọn Mô phỏng được.
+
+Server chỉ bind localhost và chỉ phục vụ `prototype/`; không triển khai server này công khai. Gửi tin sẽ chuyển hội thoại gần đây và fixture giả tới OpenAI. Chỉ dùng dữ liệu hư cấu của lab.

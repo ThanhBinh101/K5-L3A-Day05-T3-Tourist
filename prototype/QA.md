@@ -28,3 +28,7 @@ Giới hạn: không thử backend, tồn chỗ thật, staff thật, hoặc AI 
 ## Bổ sung phát hội thoại demo
 
 Đã quan sát trạng thái “Khách đang nhập tin nhắn”, ô input tạm khoá; sau đó lời khách và phản hồi mô phỏng xuất hiện. Thử S1 → giữ PA 205, review vẫn yêu cầu xác nhận. Chuyển nhanh S5 sang S4 khi đang gõ không để lại phản hồi S5 hoặc chuyển người sai ca. S4 → tìm hiểu hoàn hiện bàn giao trong chat. S2 chạy xong rồi gõ “Chọn PA 205” nhận phản hồi theo chuyến, không tự đổi vé. Đã cập nhật ảnh 01/02/03 cho bố cục chat mới. Kiểm tra trực quan không chồng chữ ở kích thước chụp.
+
+## OpenAI backend
+
+Kiểm tra transport bằng mock Responses API, chặn role system từ client, key không nằm trong response, thiếu key báo 503 và không phục vụ `.env`. Chưa chạy model thật vì chưa có API key được cấu hình cho phiên này.

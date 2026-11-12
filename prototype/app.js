@@ -3,6 +3,9 @@ const $ = id => document.getElementById(id);
 const flights = [{id:'PA 217',date:'12/11',time:'21:00',seats:1},{id:'PA 201',date:'13/11',time:'07:00',seats:9},{id:'PA 205',date:'13/11',time:'09:30',seats:4}];
 let state;
 let demoTimer;
+let conversation=[];
+let apiController;
+let sessionVersion=0;
 const demoInputs={
  ambiguous:'Ừ, đổi đi.',seats:'Cho hai mẹ con bay chuyến 9 giờ tối nay nhé.',
  compensation:'Chuyến huỷ do Rung chấn thì mình được bồi thường bao nhiêu?',
@@ -62,7 +65,7 @@ function importantText(container,text){
   else container.append(document.createTextNode(parts[i]));
  }
 }
-function bubble(role,text){const item=document.createElement('div');item.className='bubble '+role;const label=document.createElement('strong');label.textContent=role==='user'?'Khách hàng · Titan Thủy Tổ':role==='activity'?'Hoạt động mô phỏng':'Tourist · Trợ lý mô phỏng';const body=document.createElement('p');importantText(body,text);item.append(label,body);$('chat-history').append(item);$('chat-history').scrollTop=$('chat-history').scrollHeight;}
+function bubble(role,text){const item=document.createElement('div');item.className='bubble '+(role==='ai'?'assistant':role);const label=document.createElement('strong');label.textContent=role==='user'?'Khách hàng · Titan Thủy Tổ':role==='activity'?'Hoạt động':role==='ai'?'Tourist · OpenAI':'Tourist · Trợ lý mô phỏng';const body=document.createElement('p');importantText(body,text.replace(/\*\*/g,''));item.append(label,body);$('chat-history').append(item);if(role==='user'||role==='assistant'||role==='ai')conversation.push({role:role==='user'?'user':'assistant',content:text});$('chat-history').scrollTop=$('chat-history').scrollHeight;}
 function say(text){$('message').textContent=text;bubble('assistant',text);}
 function active(){return !state.changed && !state.support && !state.busy;}
 function clearHold(){state.hold=null;state.expires=0;$('hold').hidden=true;$('review').hidden=true;$('consent').checked=false;$('confirm').disabled=true;}
@@ -76,7 +79,7 @@ function expire(){if(!state.hold)return;clearHold();say('Giữ chỗ đã hết 
 function tick(){if(!state||!state.hold)return;const remaining=Math.ceil((state.expires-Date.now())/1000);if(remaining<=0){expire();return;}$('timer').textContent=String(Math.floor(remaining/60)).padStart(2,'0')+':'+String(remaining%60).padStart(2,'0');}
 function handoff(reason){if(state.support)return;clearHold();state.support=true;$('support').hidden=false;$('support').textContent='④ Đã tạo yêu cầu chuyển nhân viên (mô phỏng). Nội dung: '+reason+' Kèm TRV-7Q2K, 2 hành khách, trạng thái vé và nhật ký. Chưa có người nhận, chưa có thời gian chờ được xác minh. Không hứa hoàn tác hay thời hạn xử lý. Không tự gửi hoàn vé.';bubble('activity',$('support').textContent);log('chuyen_nhan_vien: '+reason+' / mô phỏng, chưa có người nhận.');render();}
 function reset(){
- clearInterval(demoTimer);clearTimeout(demoTimer);
+ clearInterval(demoTimer);clearTimeout(demoTimer);if(apiController)apiController.abort();sessionVersion++;conversation=[];
  state={scenario:$('scenario').value,hold:null,expires:0,changed:false,support:false,busy:false};
  clearHold();$('support').hidden=true;$('log').replaceChildren();$('chat-history').replaceChildren();$('chat-input').value='';
  log('tra_cuu_dat_cho: fixture giả TRV-7Q2K, không phải API trực tiếp.');
@@ -94,7 +97,7 @@ function sendChat(event){
  event.preventDefault();if(state.busy)return;const text=$('chat-input').value.trim();if(!text)return;bubble('user',text);$('chat-input').value='';
  // A new message may change intent: require fresh approval after any chat turn.
  $('consent').checked=false;$('confirm').disabled=true;
- pendingReply(()=>respondChat(text));
+ if($('chat-mode').value==='openai')askOpenAI();else pendingReply(()=>respondChat(text));
 }
 function respondChat(text){
  const intent=classifyChat(text);
@@ -112,3 +115,20 @@ function respondChat(text){
 }
 $('chat-form').addEventListener('submit',sendChat);
 $('chat-input').addEventListener('keydown',event=>{if(event.key==='Enter'&&!event.shiftKey&&!event.isComposing){event.preventDefault();$('chat-form').requestSubmit();}});
+
+async function askOpenAI(){
+ const version=sessionVersion;apiController=new AbortController();const timeout=setTimeout(()=>apiController.abort(),45000);
+ busy(true,'Tourist đang hỏi model OpenAI…');
+ try{
+  const result=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:conversation.slice(-16).map(m=>({...m,content:m.content.slice(0,2500)})),state:{changed:state.changed,support:state.support,heldFlight:state.hold?.id||null,scenario:state.scenario}}),signal:apiController.signal});
+  const data=await result.json();if(version!==sessionVersion)return;
+  if(!result.ok)throw new Error(data.error||'OpenAI chưa trả lời được.');
+  bubble('activity','Phản hồi từ OpenAI · '+data.model+' · '+(data.response_id||'')+' · thao tác vé vẫn mô phỏng.');$('message').textContent=data.reply;bubble('ai',data.reply);
+ }catch(error){if(version===sessionVersion)bubble('activity','Chưa nhận phản hồi AI: '+(error.name==='AbortError'?'Hết thời gian chờ.':error.message)+' Chưa thay đổi vé. Chạy python3 server.py; không nhập API key vào chat.');}
+ finally{clearTimeout(timeout);if(version===sessionVersion)busy(false);}
+}
+$('chat-mode').addEventListener('change',()=>{
+ const real=$('chat-mode').value==='openai';$('mode-badge').textContent=real?'OPENAI · VÉ MÔ PHỎNG':'MÔ PHỎNG · KHÔNG AI THẬT';
+ bubble('activity',real?'Tin bạn gõ tiếp theo sẽ được gửi đến OpenAI cùng fixture giả và hội thoại gần đây. Ca tự phát vẫn là kịch bản mô phỏng. Không nhập thông tin thật.':'Đã chuyển sang trả lời theo quy tắc, không gọi model.');
+});
+if(location.protocol!=='file:')fetch('/api/config').then(r=>r.ok?r.json():null).then(config=>{if(config)$('api-status').textContent=config.configured?'Server đã cấu hình key · '+config.model:'Server chưa có OPENAI_API_KEY · '+config.model;}).catch(()=>{});
