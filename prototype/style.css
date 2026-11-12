@@ -13,3 +13,26 @@
 #chat-activity{background:#fff2b8;border:1px solid #e5bd42;color:#664600}
 
 .bubble p strong.important{font-size:inherit;font-weight:800;color:inherit}
+
+/* AOT-inspired military field dossier; original CSS, no franchise assets. */
+:root{color:#e7e2d1;background:#171e1b;font-family:Georgia,'Times New Roman',serif}
+body{background:radial-gradient(ellipse at top left,#3c4939 0,transparent 55%),repeating-linear-gradient(0deg,#ffffff02 0 1px,transparent 1px 5px),#171e1b}
+header,footer{background:#111814;border-color:#687151;color:#c6c8b5}
+.brand{color:#e9dfbf;letter-spacing:2px;font-family:Georgia,serif;text-transform:uppercase}
+.pill{border-color:#8b9376;background:#26372c;color:#e7e2d1}
+h1{font-family:Georgia,serif;letter-spacing:-1px;color:#efe5c9;text-shadow:2px 3px #101a14}
+h2,h3{font-family:Georgia,serif}.intro .eyebrow{color:#d9b86b;letter-spacing:3px}.intro>p:last-child{color:#c1c7b4}
+.card{background:#e8e3cf;color:#26352a;border:1px solid #9b9b7e;border-radius:5px;box-shadow:5px 6px 0 #0a120c55;position:relative}
+.card::before{content:'';position:absolute;left:10px;top:10px;width:4px;height:4px;background:#7a8267;border-radius:50%;box-shadow:calc(100% - 20px) 0 #7a8267}
+.eyebrow{color:#596648}small,.footnote{color:#5d6655}hr,details,#chat-workflow,#chat-form{border-color:#b8baa3}
+button{background:#394d35;border:1px solid #243623;border-radius:3px;font-family:Arial,sans-serif;text-transform:none}
+.secondary{background:#e5dfc9;color:#34442e;border-color:#8c9679}select,textarea{background:#f7f1dc;color:#26352a;border-color:#99a084;border-radius:3px}
+.warning{background:#f1d7be;color:#7c2d26;border-left:4px solid #8e3930;border-radius:2px}
+.chat{background:#cbd0ba;border:1px solid #929d82;border-radius:4px}.chat-title>strong{font-size:19px}.chat-title .pill{background:#374a37}
+.flight{border-color:#a5ad95;border-radius:3px;background:#eeebdc}.flight.unavailable{background:#d7d7c7;color:#6c7163}.hold{background:#dbd4a5;border:1px solid #a89c5c;border-radius:3px}
+.bubble{border-radius:4px}.bubble.user{background:#d7e7ec;border:1px solid #779fac;color:#183c4a}.bubble.user strong{color:#234f62}
+.bubble.assistant{background:#fffdf4;border:1px solid #b3b59e;color:#283b2d}.bubble.assistant strong{color:#4c5b43}
+.bubble.activity,#chat-activity{background:#f2dfa0;border:1px solid #aa8839;color:#594510}.bubble.activity strong{color:#71531c}
+#support{background:#e8d5ba;border-left:4px solid #844537;border-radius:3px}summary{color:#4e6048}.sectionhead .pill{background:#40543a}.consent input{accent-color:#42553a}
+footer{font-family:Arial,sans-serif;letter-spacing:1px}button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{outline-color:#a64b39}
+header>span{color:#bfc6b3}

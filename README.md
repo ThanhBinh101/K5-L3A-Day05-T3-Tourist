@@ -1,6 +1,6 @@
 # Tourist · LAB5 T3 Du lịch
 
-Thiết kế trợ lý đổi chuyến khi chuyến bị huỷ: AI tìm và giữ phương án, khách duyệt trước khi đổi, nhân viên xử lý ngoại lệ. Dữ liệu hoàn toàn giả của hãng Bay Mẫu.
+Thiết kế trợ lý đổi chuyến khi chuyến bị huỷ: AI tìm và giữ phương án, khách duyệt trước khi đổi, nhân viên xử lý ngoại lệ. Dữ liệu hoàn toàn giả của hãng Paradis Air.
 
 - [Spec: phạm vi, 8 rủi ro, UX khi sai, mức tự chủ, demo](spec.md)
 - [Prototype HTML](prototype/index.html) — tải repo rồi mở bằng trình duyệt

@@ -10,8 +10,8 @@ Mở http://localhost:8000. Không cần package, tài khoản, API key hoặc b
 
 ## Bấm thử
 
-1. Chọn S1: “Ừ, đổi đi”. BM 217 bị chặn vì chỉ 1 chỗ.
-2. Giữ 2 chỗ BM 205. Kiểm tra đồng hồ, hai tên và cảnh báo mất quyền đổi.
+1. Chọn S1: “Ừ, đổi đi”. PA 217 bị chặn vì chỉ 1 chỗ.
+2. Giữ 2 chỗ PA 205. Kiểm tra đồng hồ, hai tên và cảnh báo mất quyền đổi.
 3. Nút đổi bị khoá cho tới khi tick xác nhận. Bấm đổi, lần miễn phí còn 0, không thể đổi thêm.
 4. Chọn S4, bấm tìm hiểu hoàn: cảnh báo không huỷ được và thiếu thông tin; chỉ chuyển người, không gửi hoàn.
 5. Chọn S5: lỗi đã đổi nhầm, chuyển nhân viên, không hứa undo.
@@ -26,7 +26,7 @@ Dropdown chọn kịch bản cố định, không phải model xử lý ngôn ng
 Nhập trong ô “Tin nhắn của bạn”, bấm Gửi hoặc Enter (Shift+Enter xuống dòng). Ví dụ:
 
 - “Cho hai mẹ con bay tối nay” → giải thích thiếu chỗ.
-- “Chọn BM 205” → chỉ thẻ chuyến; không tự giữ hoặc đổi.
+- “Chọn PA 205” → chỉ thẻ chuyến; không tự giữ hoặc đổi.
 - “Thôi hoàn tiền đi mà khoan” → chưa gửi, cảnh báo không huỷ được.
 - “Bạn đổi nhầm rồi” → chuyển nhân viên, không tự khẳng định vé đã đổi chỉ vì lời chat.
 - Câu chưa hiểu → hỏi lại với các lựa chọn, không đoán hành động.
@@ -38,3 +38,7 @@ Hỗ trợ tiếng Việt có/không dấu bằng từ khoá, không phải hi�
 Chọn ca ở bên trái hoặc bấm **Phát lại cuộc hội thoại**. Lời khách tự xuất hiện từng đoạn trong ô nhập, gửi thành bong bóng “Khách hàng · Titan Thủy Tổ”, rồi hiện trạng thái trợ lý kiểm tra và phản hồi mô phỏng. Thẻ chuyến, giữ chỗ, review và bàn giao nằm ngay trong khung chat. Có thể gõ tiếp sau khi trợ lý trả lời. Chọn ca mới huỷ hiệu ứng cũ và reset toàn bộ fixture; không làm lẫn hành động giữa các ca.
 
 Hiệu ứng gõ và thời gian trả lời chỉ phục vụ trình diễn, không phải một model đang suy luận. Bước đổi vé vẫn cần checkbox và nút xác nhận; chat không thể tự thực thi đổi/hoàn.
+
+## Bối cảnh AOT
+
+Biến thể giả tưởng: Paradis Air, đảo Paradis → Marley, PA 213 huỷ do Rung chấn; các chuyến thay thế PA 217, PA 201, PA 205. Mã PA chỉ để trình diễn, không tuyên bố là mã hãng đăng ký. Theme lấy cảm hứng hồ sơ quân đoàn: xanh quân phục, giấy cũ, viền kim loại, cảnh báo đỏ. Bong bóng khách vẫn xanh, trợ lý trắng, hoạt động vàng.

@@ -12,8 +12,8 @@ function classifyChat(input){
  const matches=[...new Set((t.match(/\b(?:201|205|217)\b/g)||[]))];
  if(matches.length>1)return {type:'ambiguous'};
  if(/khong|dung|khoan|chua|doi y/.test(t))return {type:'ambiguous'};
- if(matches.length===1)return {type:'flight',flight:'BM '+matches[0]};
- if(/toi nay|21:00|21h|9 gio toi/.test(t))return {type:'flight',flight:'BM 217'};
+ if(matches.length===1)return {type:'flight',flight:'PA '+matches[0]};
+ if(/toi nay|21:00|21h|9 gio toi/.test(t))return {type:'flight',flight:'PA 217'};
  if(/doi|dong y|ok|xac nhan|sang mai|giu cho/.test(t))return {type:'ambiguous'};
  return {type:'unknown'};
 }

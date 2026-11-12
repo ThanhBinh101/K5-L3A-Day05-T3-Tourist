@@ -1,6 +1,6 @@
 {
   "synthetic": true,
-  "source": "Adapted T3 course fixture; fictional Bay Mẫu airline; passenger names, adult age, cancelled flight number and reason customized for demo",
+  "source": "Adapted T3 course fixture; fictional Paradis Air airline; passenger names, adult age, cancelled flight number and reason customized for demo",
   "now": "2026-11-12T15:00:00+07:00",
   "booking_id": "TRV-7Q2K",
   "booked_via": "app",
@@ -16,12 +16,12 @@
     }
   ],
   "original_flight": {
-    "number": "jkfake",
-    "origin": "Hà Nội",
-    "destination": "TP.HCM",
+    "number": "PA 213",
+    "origin": "đảo Paradis",
+    "destination": "Marley",
     "departure": "2026-11-12T19:00:00+07:00",
     "status": "cancelled",
-    "reason": "nanka"
+    "reason": "rumbling"
   },
   "policy": {
     "free_changes": 1,
@@ -33,17 +33,17 @@
   },
   "alternatives": [
     {
-      "number": "BM 217",
+      "number": "PA 217",
       "departure": "2026-11-12T21:00:00+07:00",
       "seats_available": 1
     },
     {
-      "number": "BM 201",
+      "number": "PA 201",
       "departure": "2026-11-13T07:00:00+07:00",
       "seats_available": 9
     },
     {
-      "number": "BM 205",
+      "number": "PA 205",
       "departure": "2026-11-13T09:30:00+07:00",
       "seats_available": 4
     }
