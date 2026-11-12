@@ -87,7 +87,7 @@ Hiện trạng thái chưa gửi. Khách không làm gì: không có yêu cầu 
 
 ## §5. Prototype
 
-[Chạy prototype](prototype/index.html) · HTML/CSS/JavaScript thuần · không cài package, không backend, không gọi AI thật. Giao diện gốc của nhóm, không sao chép mẫu giảng viên. Ca chính S1 “Ừ, đổi đi”, không phải ca “sáng mai”. S5 là ca phục hồi bổ sung. Dropdown là bộ chọn fixture, không phải AI hiểu hội thoại tự do. Các hành động đổi, giữ và chuyển người đều chỉ chạy trong bộ nhớ trình duyệt; reload hoặc chọn ca sẽ reset, không có giao dịch ngoài.
+[Chạy prototype](prototype/index.html) · HTML/CSS/JavaScript thuần · không cài package, không backend, không gọi AI thật. Giao diện gốc của nhóm, không sao chép mẫu giảng viên. Ca chính S1 “Ừ, đổi đi”, không phải ca “sáng mai”. S5 là ca phục hồi bổ sung. Dropdown là bộ chọn fixture. Có thêm ô chat nhập tự do với phản hồi theo từ khoá tiếng Việt có/không dấu, không dùng model; câu ngoài quy tắc được hỏi lại. Chat không trực tiếp giữ/đổi/hoàn vé, mỗi tin mới xoá xác nhận checkbox cũ. Tin báo đổi nhầm chỉ tạo chuyển người để kiểm tra, không tự ghi nhận đã đổi. Các hành động đổi, giữ và chuyển người đều chỉ chạy trong bộ nhớ trình duyệt; reload hoặc chọn ca sẽ reset, không có giao dịch ngoài.
 
 ![Ảnh 1 — review có đánh số](prototype/screenshots/01-review.jpg)
 

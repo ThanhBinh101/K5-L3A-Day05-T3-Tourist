@@ -20,3 +20,7 @@
 Kiểm tra thêm: `node --check prototype/app.js`, JSON fixture hợp lệ, `git diff --check`. Hai ảnh toàn trang đã được chụp, ảnh review đã kiểm tra trực quan, không chồng chữ trong kích thước chụp. Chưa kiểm thử riêng trên thiết bị mobile hoặc thời gian chờ tự nhiên đủ 20 phút; đường hết hạn được kích qua nút mô phỏng và có kiểm tra thời hạn ngay trong handler xác nhận.
 
 Giới hạn: không thử backend, tồn chỗ thật, staff thật, hoặc AI hiểu câu tự do. Không dùng kết quả này thay cho ca lạ do TA/nhóm bạn đưa tại demo.
+
+## Bổ sung chat mô phỏng
+
+Đã bấm trình duyệt: gửi “Cho hai me con bay toi nay” → báo thiếu 2 chỗ; Enter gửi “Thôi hoàn tiền đi mà khoan” → chưa gửi hoàn; giữ BM 205 rồi gửi “đồng ý đổi đi” → nút đổi vẫn disabled. Có lịch sử khách/trợ lý và nhãn không AI thật. Ảnh `screenshots/03-simulated-chat.jpg`. Kiểm tra classifier bằng Node cho câu có/không dấu, nhiều chuyến, phủ định, ngoài phạm vi và injection; không có lời gọi model.
