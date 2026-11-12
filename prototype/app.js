@@ -56,7 +56,7 @@ const messages = {
 function log(text){const li=document.createElement('li');li.textContent=text;$('log').append(li);}
 // Render emphasis as DOM text nodes, never as passenger-supplied HTML.
 function importantText(container,text){
- const parts=text.split(/(Titan Thủy Tổ|Titan Tiến Công|PA 217|PA 201|PA 205|PA 213|TRV-7Q2K|67 tuổi|5 tuổi|\b(?:12|13)\/11(?:\/2026)?|\b(?:07:00|09:30|19:00|21:00)\b|Rung chấn)/g);
+ const parts=text.split(/(Thông tin chuyến bay của bạn:|Titan Thủy Tổ|Titan Tiến Công|PA 217|PA 201|PA 205|PA 213|TRV-7Q2K|67 tuổi|5 tuổi|\b(?:12|13)\/11(?:\/2026)?|\b(?:07:00|09:30|19:00|21:00)\b|Rung chấn)/g);
  for(let i=0;i<parts.length;i++){
   if(i%2){const strong=document.createElement('strong');strong.className='important';strong.textContent=parts[i];container.append(strong);}
   else container.append(document.createTextNode(parts[i]));
@@ -80,7 +80,7 @@ function reset(){
  state={scenario:$('scenario').value,hold:null,expires:0,changed:false,support:false,busy:false};
  clearHold();$('support').hidden=true;$('log').replaceChildren();$('chat-history').replaceChildren();$('chat-input').value='';
  log('tra_cuu_dat_cho: fixture giả TRV-7Q2K, không phải API trực tiếp.');
- bubble('assistant','Chào Titan Thủy Tổ, tôi là trợ lý mô phỏng của Tourist. Tôi hỗ trợ đặt lại vé cho chuyến bay PA 213 bị huỷ do Rung chấn, thuộc đặt chỗ TRV-7Q2K của bạn và bé Titan Tiến Công. Tôi chỉ đổi vé khi bạn duyệt rõ chuyến và cả hai hành khách.');
+ bubble('assistant','Chào Titan Thủy Tổ, tôi là trợ lý mô phỏng của Tourist. Tôi hỗ trợ đặt lại vé cho chuyến bay PA 213 bị huỷ do Rung chấn.\n\nThông tin chuyến bay của bạn:\nMã đặt chỗ: TRV-7Q2K\nTên HK 1: Titan Thủy Tổ · 67 tuổi\nTên HK 2: Titan Tiến Công · 5 tuổi\n\nTôi chỉ đổi vé khi bạn duyệt rõ chuyến với cả hai hành khách.');
  render();playDemo();
 }
 $('consent').addEventListener('change',()=>{$('confirm').disabled=!$('consent').checked||!state.hold||!active();});
