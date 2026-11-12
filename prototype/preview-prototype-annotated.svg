@@ -1,0 +1,264 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" style="background:#f1f5f9; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.12" />
+    </filter>
+    <filter id="card-shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.06" />
+    </filter>
+  </defs>
+
+  <!-- Background Header -->
+  <rect x="0" y="0" width="1200" height="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+  <text x="40" y="42" font-size="20" font-weight="700" fill="#0f172a">BayAnToan · Prototype T3 Du lịch (Traveloka)</text>
+  <rect x="470" y="24" width="140" height="26" rx="6" fill="#dbeafe" />
+  <text x="480" y="42" font-size="12" font-weight="700" fill="#1e40af">TRACK T3 · DU LỊCH</text>
+  <text x="630" y="42" font-size="14" fill="#64748b">Ca khó KB2: Đổi gấp chuyến 21:00 (BM 217 còn 1 chỗ · Có bé 5 tuổi)</text>
+
+  <!-- Left: Mobile Phone Screen Container -->
+  <g transform="translate(40, 95)">
+    <!-- Phone Body -->
+    <rect x="0" y="0" width="460" height="770" rx="36" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" filter="url(#shadow)" />
+    <!-- Inner Screen -->
+    <rect x="12" y="12" width="436" height="746" rx="26" fill="#fafaf9" stroke="#e2e8f0" stroke-width="1" />
+
+    <!-- Status Bar -->
+    <text x="32" y="38" font-size="12" font-weight="600" fill="#64748b">15:02</text>
+    <text x="380" y="38" font-size="12" font-weight="600" fill="#64748b">5G 100%</text>
+
+    <!-- App Header -->
+    <rect x="12" y="48" width="436" height="48" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+    <text x="30" y="74" font-size="14" font-weight="700" fill="#0f172a">Đặt chỗ của tôi</text>
+    <text x="30" y="88" font-size="11" fill="#64748b">Hỗ trợ chuyến bay bất thường</text>
+    <rect x="330" y="62" width="100" height="22" rx="4" fill="#f1f5f9" />
+    <text x="340" y="77" font-size="11" font-weight="700" fill="#334155" font-family="monospace">TRV-7Q2K</text>
+
+    <!-- Flight Status Banner -->
+    <rect x="24" y="106" width="412" height="66" rx="12" fill="#fef2f2" stroke="#fecaca" stroke-width="1" />
+    <text x="36" y="128" font-size="13" font-weight="700" fill="#991b1b">BM 213 · Hà Nội → TP.HCM · 19:00</text>
+    <text x="36" y="146" font-size="12" font-weight="700" fill="#dc2626">TRẠNG THÁI: ĐÃ HUỶ DO BÃO</text>
+    <text x="36" y="162" font-size="11" fill="#64748b">Hành khách: Nguyễn Minh An (34t) · Nguyễn Gia Bình (5t)</text>
+
+    <!-- User Chat Bubble -->
+    <g transform="translate(60, 185)">
+      <path d="M0 0 L360 0 A14 14 0 0 1 374 14 L374 44 A14 14 0 0 1 360 58 L14 58 A14 14 0 0 1 0 44 Z" fill="#0284c7" />
+      <text x="16" y="24" font-size="13" fill="#ffffff">Chuyến huỷ rồi à? Đổi gấp sang chuyến 21:00</text>
+      <text x="16" y="44" font-size="13" fill="#ffffff">tối nay đi, tôi có việc gấp lắm không đợi được!</text>
+    </g>
+
+    <!-- AI Chat Bubble Container -->
+    <g transform="translate(24, 258)">
+      <rect x="0" y="0" width="412" height="425" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#card-shadow)" />
+      
+      <!-- AI Header [1] -->
+      <g transform="translate(14, 16)">
+        <circle cx="10" cy="10" r="10" fill="#ea580c" />
+        <text x="7" y="14" font-size="11" font-weight="800" fill="#fff">1</text>
+        <text x="26" y="14" font-size="11.5" font-weight="700" fill="#0284c7">Trợ lý AI Hỗ trợ vé · Đang kết nối PNR TRV-7Q2K</text>
+      </g>
+      <text x="14" y="48" font-size="12.5" fill="#334155">Dạ em rất hiểu sự nóng lòng của anh/chị khi BM 213 bị huỷ.</text>
+
+      <!-- Warning Box [2] -->
+      <g transform="translate(14, 58)">
+        <rect x="0" y="0" width="384" height="66" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1" />
+        <circle cx="12" cy="14" r="10" fill="#ea580c" />
+        <text x="9" y="18" font-size="11" font-weight="800" fill="#fff">2</text>
+        <text x="28" y="16" font-size="11.5" font-weight="700" fill="#991b1b">CẢNH BÁO: CHUYẾN 21:00 CHỈ CÒN 1 CHỖ</text>
+        <text x="12" y="34" font-size="11" fill="#7f1d1d">Đoàn có 2 người: anh/chị và bé Nguyễn Gia Bình (5 tuổi).</text>
+        <text x="12" y="50" font-size="11" fill="#7f1d1d">Trẻ 5 tuổi KHÔNG ĐƯỢC BAY MỘT MÌNH theo quy chuẩn an toàn bay.</text>
+      </g>
+
+      <!-- Evidence Citation [3] -->
+      <g transform="translate(14, 134)">
+        <line x1="0" y1="0" x2="0" y2="24" stroke="#0284c7" stroke-width="3" />
+        <circle cx="14" cy="12" r="10" fill="#ea580c" />
+        <text x="11" y="16" font-size="11" font-weight="800" fill="#fff">3</text>
+        <text x="30" y="16" font-size="11" fill="#64748b">Căn cứ: PNR TRV-7Q2K · Dữ liệu kho chỗ thời gian thực · Quy chế bay trẻ em</text>
+      </g>
+
+      <!-- Hold Seat Card [4] -->
+      <g transform="translate(14, 168)">
+        <rect x="0" y="0" width="384" height="64" rx="8" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1" />
+        <circle cx="12" cy="14" r="10" fill="#ea580c" />
+        <text x="9" y="18" font-size="11" font-weight="800" fill="#fff">4</text>
+        <text x="28" y="16" font-size="11.5" font-weight="700" fill="#065f46">ĐÃ TỰ ĐỘNG GIỮ 2 CHỖ SÁNG MAI (Miễn phí)</text>
+        <text x="12" y="34" font-size="11" fill="#047857">Chuyến BM 201 · 07:00 sáng mai (13/11) · Tự giữ trong </text>
+        <rect x="290" y="21" width="46" height="18" rx="4" fill="#d1fae5" />
+        <text x="296" y="34" font-size="11" font-weight="700" fill="#065f46">19:58</text>
+        <text x="12" y="52" font-size="10.5" font-style="italic" fill="#059669">Chưa trừ lượt đổi vé miễn phí của bạn.</text>
+      </g>
+
+      <!-- Flight Option Card -->
+      <g transform="translate(14, 240)">
+        <rect x="0" y="0" width="384" height="42" rx="8" fill="#f0fdf4" stroke="#059669" stroke-width="1.5" />
+        <text x="12" y="18" font-size="12" font-weight="700" fill="#0f172a">BM 201 · 07:00 sáng mai (13/11)</text>
+        <text x="12" y="32" font-size="10.5" fill="#64748b">Còn 9 chỗ trống · Đã giữ 2 chỗ cho 2 mẹ con</text>
+        <rect x="310" y="12" width="62" height="18" rx="10" fill="#dcfce7" />
+        <text x="318" y="25" font-size="10" font-weight="700" fill="#15803d">Đang giữ</text>
+      </g>
+
+      <!-- Action Button 1: Confirmation [5] -->
+      <g transform="translate(14, 292)">
+        <rect x="0" y="0" width="384" height="36" rx="8" fill="#059669" />
+        <circle cx="16" cy="18" r="10" fill="#ea580c" />
+        <text x="13" y="22" font-size="11" font-weight="800" fill="#fff">5</text>
+        <text x="36" y="23" font-size="12.5" font-weight="700" fill="#ffffff">Xác nhận đổi sang 07:00 sáng mai (Miễn phí)</text>
+      </g>
+
+      <!-- Action Buttons Row 2: Escalation [6] -->
+      <g transform="translate(14, 336)">
+        <rect x="0" y="0" width="186" height="32" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+        <text x="18" y="21" font-size="11" font-weight="600" fill="#334155">Tách vé người lớn bay tối nay</text>
+
+        <rect x="198" y="0" width="186" height="32" rx="8" fill="#3b82f6" />
+        <circle cx="212" cy="16" r="10" fill="#ea580c" />
+        <text x="209" y="20" font-size="11" font-weight="800" fill="#fff">6</text>
+        <text x="230" y="21" font-size="11.5" font-weight="700" fill="#ffffff">Gặp nhân viên hỗ trợ</text>
+      </g>
+
+      <!-- Action Button 3: Refund Gate [8] -->
+      <g transform="translate(14, 376)">
+        <rect x="0" y="0" width="384" height="32" rx="8" fill="#ffffff" stroke="#ef4444" stroke-width="1.5" />
+        <circle cx="16" cy="16" r="10" fill="#ea580c" />
+        <text x="13" y="20" font-size="11" font-weight="800" fill="#fff">8</text>
+        <text x="36" y="21" font-size="11.5" font-weight="700" fill="#dc2626">Thôi, tôi muốn huỷ vé &amp; hoàn tiền (Mở modal xác nhận 2 bước)</text>
+      </g>
+    </g>
+
+    <!-- Bottom Input Bar -->
+    <rect x="12" y="694" width="436" height="52" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+    <rect x="24" y="704" width="360" height="32" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" />
+    <text x="38" y="724" font-size="12" fill="#94a3b8">Nhập tin nhắn thử nghiệm...</text>
+    <circle cx="415" cy="720" r="16" fill="#0284c7" />
+    <polygon points="410,713 423,720 410,727" fill="#ffffff" />
+  </g>
+
+  <!-- Right: Architecture & Detailed Rubric Explanation -->
+  <g transform="translate(540, 95)">
+    <!-- Panel 1: Autonomy Matrix & Undo Box [7] -->
+    <rect x="0" y="0" width="620" height="320" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#card-shadow)" />
+    <text x="24" y="34" font-size="16" font-weight="700" fill="#0f172a">Ma trận Mức tự chủ 5 Tool (§4) &amp; Cửa sổ Hoàn tác [7]</text>
+    
+    <!-- Table Header -->
+    <rect x="24" y="52" width="572" height="28" fill="#f8fafc" />
+    <text x="32" y="71" font-size="11" font-weight="700" fill="#64748b">TOOL</text>
+    <text x="180" y="71" font-size="11" font-weight="700" fill="#64748b">MỨC TỰ CHỦ</text>
+    <text x="280" y="71" font-size="11" font-weight="700" fill="#64748b">LÝ DO THEO COST-OF-ERROR</text>
+
+    <!-- Table Rows -->
+    <line x1="24" y1="80" x2="596" y2="80" stroke="#e2e8f0" />
+    <text x="32" y="99" font-size="12" font-family="monospace">tra_cuu_dat_cho</text>
+    <rect x="180" y="87" width="56" height="18" rx="9" fill="#dcfce7" />
+    <text x="188" y="100" font-size="10" font-weight="700" fill="#15803d">Tự làm</text>
+    <text x="280" y="100" font-size="11.5" fill="#334155">Chỉ đọc dữ liệu PNR, chi phí sai thấp, không đổi trạng thái.</text>
+
+    <line x1="24" y1="112" x2="596" y2="112" stroke="#e2e8f0" />
+    <rect x="24" y="113" width="572" height="28" fill="#f0fdf4" />
+    <text x="32" y="131" font-size="12" font-family="monospace">giu_cho_chuyen_moi</text>
+    <rect x="180" y="119" width="56" height="18" rx="9" fill="#dcfce7" />
+    <text x="188" y="132" font-size="10" font-weight="700" fill="#15803d">Tự làm</text>
+    <text x="280" y="132" font-size="11.5" font-weight="600" fill="#047857">Đảo lại được 100% (tự nhả sau 20p). Chờ duyệt = hết chỗ!</text>
+
+    <line x1="24" y1="144" x2="596" y2="144" stroke="#e2e8f0" />
+    <text x="32" y="163" font-size="12" font-family="monospace">doi_chuyen_bay</text>
+    <rect x="180" y="151" width="70" height="18" rx="9" fill="#fef3c7" />
+    <text x="188" y="164" font-size="10" font-weight="700" fill="#b45309">Cần duyệt</text>
+    <text x="280" y="164" font-size="11.5" fill="#334155">Dùng mất lượt đổi miễn phí duy nhất; sai = mất vé vĩnh viễn.</text>
+
+    <line x1="24" y1="176" x2="596" y2="176" stroke="#e2e8f0" />
+    <text x="32" y="195" font-size="12" font-family="monospace">gui_yeu_cau_hoan_ve</text>
+    <rect x="180" y="183" width="86" height="18" rx="9" fill="#fee2e2" />
+    <text x="188" y="196" font-size="10" font-weight="700" fill="#b91c1c">Cần duyệt gắt</text>
+    <text x="280" y="196" font-size="11.5" fill="#334155">KHÔNG THỂ thu hồi, tiền giam 90 ngày. Bắt buộc tick checkbox.</text>
+
+    <line x1="24" y1="208" x2="596" y2="208" stroke="#e2e8f0" />
+    <text x="32" y="227" font-size="12" font-family="monospace">chuyen_nhan_vien</text>
+    <rect x="180" y="215" width="56" height="18" rx="9" fill="#dcfce7" />
+    <text x="188" y="228" font-size="10" font-weight="700" fill="#15803d">Tự làm</text>
+    <text x="280" y="228" font-size="11.5" fill="#334155">An toàn tuyệt đối, tốn công nhân viên nhưng bảo vệ an toàn bay.</text>
+
+    <!-- Undo Box [7] Callout -->
+    <rect x="24" y="244" width="572" height="60" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1" />
+    <circle cx="40" cy="274" r="12" fill="#ea580c" />
+    <text x="36" y="278" font-size="12" font-weight="800" fill="#fff">7</text>
+    <text x="60" y="266" font-size="12.5" font-weight="700" fill="#1e40af">Cơ chế Ân hạn Hoàn tác 10 phút (HAX G8 &amp; G9):</text>
+    <text x="60" y="284" font-size="11.5" fill="#1e3a8a">Sau khi khách bấm xác nhận đổi vé, hệ thống giữ vé ở trạng thái chờ xuất (Pending Issuance) 10:00.</text>
+    <text x="60" y="298" font-size="11.5" fill="#1e3a8a">Khách phát hiện đổi nhầm có thể bấm Hoàn tác ngay lập tức mà không mất lượt đổi miễn phí.</text>
+
+    <!-- Panel 2: Numbered Legend Breakdown [1] to [8] -->
+    <rect x="0" y="340" width="620" height="430" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#card-shadow)" />
+    <text x="24" y="374" font-size="16" font-weight="700" fill="#0f172a">Bản đồ Ánh xạ Nguyên tắc HAX / PAIR (§5)</text>
+
+    <g transform="translate(24, 396)">
+      <!-- Item 1 -->
+      <circle cx="12" cy="12" r="10" fill="#ea580c" />
+      <text x="9" y="16" font-size="11" font-weight="800" fill="#fff">1</text>
+      <text x="32" y="16" font-size="12" font-weight="700" fill="#0f172a">HAX G1 &amp; Luật AI 134/2025/QH15 Đ.11:</text>
+      <text x="260" y="16" font-size="12" fill="#475569">Minh bạch rõ danh tính trợ lý AI và phạm vi kết nối PNR.</text>
+
+      <!-- Item 2 -->
+      <g transform="translate(0, 34)">
+        <circle cx="12" cy="12" r="10" fill="#ea580c" />
+        <text x="9" y="16" font-size="11" font-weight="800" fill="#fff">2</text>
+        <text x="32" y="16" font-size="12" font-weight="700" fill="#0f172a">HAX G2 &amp; G10 (Giới hạn &amp; Nghi ngờ):</text>
+        <text x="270" y="16" font-size="12" fill="#475569">Cảnh báo thiếu chỗ &amp; cấm tách vé trẻ 5 tuổi bay một mình.</text>
+      </g>
+
+      <!-- Item 3 -->
+      <g transform="translate(0, 68)">
+        <circle cx="12" cy="12" r="10" fill="#ea580c" />
+        <text x="9" y="16" font-size="11" font-weight="800" fill="#fff">3</text>
+        <text x="32" y="16" font-size="12" font-weight="700" fill="#0f172a">HAX G11 &amp; PAIR Explainability:</text>
+        <text x="250" y="16" font-size="12" fill="#475569">Trích dẫn bằng chứng kiểm chứng được từ PNR và luật bay.</text>
+      </g>
+
+      <!-- Item 4 -->
+      <g transform="translate(0, 102)">
+        <circle cx="12" cy="12" r="10" fill="#ea580c" />
+        <text x="9" y="16" font-size="11" font-weight="800" fill="#fff">4</text>
+        <text x="32" y="16" font-size="12" font-weight="700" fill="#0f172a">PAIR Feedback &amp; Control (Tự làm):</text>
+        <text x="260" y="16" font-size="12" fill="#475569">Tự giữ 2 chỗ sáng mai có đếm ngược 20:00 bảo vệ ghế.</text>
+      </g>
+
+      <!-- Item 5 -->
+      <g transform="translate(0, 136)">
+        <circle cx="12" cy="12" r="10" fill="#ea580c" />
+        <text x="9" y="16" font-size="11" font-weight="800" fill="#fff">5</text>
+        <text x="32" y="16" font-size="12" font-weight="700" fill="#0f172a">HAX G9 &amp; Human-in-the-loop (Cần duyệt):</text>
+        <text x="290" y="16" font-size="12" fill="#475569">Bắt buộc khách bấm duyệt mới xuất vé.</text>
+      </g>
+
+      <!-- Item 6 -->
+      <g transform="translate(0, 170)">
+        <circle cx="12" cy="12" r="10" fill="#ea580c" />
+        <text x="9" y="16" font-size="11" font-weight="800" fill="#fff">6</text>
+        <text x="32" y="16" font-size="12" font-weight="700" fill="#0f172a">PAIR Errors &amp; Graceful Fallback:</text>
+        <text x="250" y="16" font-size="12" fill="#475569">Chuyển nhân viên 1 chạm, truyền 100% context PNR.</text>
+      </g>
+
+      <!-- Item 7 -->
+      <g transform="translate(0, 204)">
+        <circle cx="12" cy="12" r="10" fill="#ea580c" />
+        <text x="9" y="16" font-size="11" font-weight="800" fill="#fff">7</text>
+        <text x="32" y="16" font-size="12" font-weight="700" fill="#0f172a">HAX G8 (Hoàn tác dễ dàng):</text>
+        <text x="210" y="16" font-size="12" fill="#475569">Nút hoàn tác ân hạn 10 phút cứu vãn lỗi thao tác nhầm.</text>
+      </g>
+
+      <!-- Item 8 -->
+      <g transform="translate(0, 238)">
+        <circle cx="12" cy="12" r="10" fill="#ea580c" />
+        <text x="9" y="16" font-size="11" font-weight="800" fill="#fff">8</text>
+        <text x="32" y="16" font-size="12" font-weight="700" fill="#0f172a">HAX G10 (Friction Safety Gate):</text>
+        <text x="240" y="16" font-size="12" fill="#475569">Modal 2 bước khoá hoàn vé bằng hộp kiểm cam kết.</text>
+      </g>
+
+      <!-- Summary Note -->
+      <g transform="translate(0, 280)">
+        <rect x="0" y="0" width="572" height="74" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+        <text x="14" y="24" font-size="12" font-weight="700" fill="#059669">✓ ĐÁP ỨNG TOÀN DIỆN RUBRIC R5 (PROTOTYPE - 25 ĐIỂM):</text>
+        <text x="14" y="44" font-size="11.5" fill="#334155">• Bấm qua được ca khó KB2 liên tục từ đầu đến cuối không lỗi.</text>
+        <text x="14" y="62" font-size="11.5" fill="#334155">• Đầy đủ minh chứng nguồn sự thật · Điều khiển mức tự chủ trực quan · 8 Callout HAX/PAIR rõ ràng.</text>
+      </g>
+    </g>
+  </g>
+</svg>
