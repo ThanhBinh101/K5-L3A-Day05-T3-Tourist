@@ -14,9 +14,9 @@ Bản thiết kế và prototype được soạn với Codex. Nhóm cần xác n
 
 Trong **Đặt chỗ của tôi**, khi **hành khách** vừa nhận tin chuyến bay bị huỷ và nhắn hỏi, **AI đề xuất và giữ chỗ chuyến thay thế, hỏi lại cho rõ, đổi vé, hay chuyển nhân viên**, để khách tới nơi kịp mà không mất vé hay tiền vì một thao tác không đảo lại được.
 
-Không làm: (1) đổi tên hành khách — không có tool và chưa biết điều kiện; (2) sắp xếp trẻ bay một mình — thiếu chính sách và thẩm quyền; (3) hứa bồi thường tiền mặt do bão — trái fixture; (4) gửi yêu cầu hoàn khi thiếu thông tin nhận tiền/thời gian — không thể có xác nhận đủ thông tin.
+Không làm: (1) đổi tên hành khách — không có tool và chưa biết điều kiện; (2) sắp xếp trẻ bay một mình — thiếu chính sách và thẩm quyền; (3) hứa bồi thường tiền mặt do nạnka — trái fixture; (4) gửi yêu cầu hoàn khi thiếu thông tin nhận tiền/thời gian — không thể có xác nhận đủ thông tin.
 
-**Căn cứ chung:** [fixture](prototype/fixtures/booking.json), dựa trên dữ liệu dựng của [track T3](https://github.com/VinUni-AI20k/K5-L3-Day05-AI-Product-UX-Autonomy/blob/main/tracks/t3-travel.md). Biến thể nhóm: đổi tên hành khách thành Titan Thủy Tổ và Titan Tiến Công; tuổi và điều kiện giữ nguyên. Bây giờ trong mô phỏng là 15:00 ngày 12/11/2026 GMT+7. TRV-7Q2K có Titan Thủy Tổ (34 tuổi), Titan Tiến Công (5 tuổi). BM 213 Hà Nội → TP.HCM, 19:00 ngày 12/11 bị huỷ do bão. BM 217 21:00 cùng ngày còn 1 chỗ; BM 201 07:00 ngày 13/11 còn 9; BM 205 09:30 ngày 13/11 còn 4. Đổi miễn phí một lần trong 48 giờ hoặc hoàn toàn bộ; không bồi thường tiền mặt do thời tiết. Giữ chỗ 20 phút chưa phải đổi vé. Yêu cầu hoàn gửi rồi không huỷ được. Đích nhận tiền và thời gian hoàn **chưa có trong fixture**, không áp thông tin tham khảo Traveloka thành cam kết của Bay Mẫu.
+**Căn cứ chung:** [fixture](prototype/fixtures/booking.json), dựa trên dữ liệu dựng của [track T3](https://github.com/VinUni-AI20k/K5-L3-Day05-AI-Product-UX-Autonomy/blob/main/tracks/t3-travel.md). Biến thể nhóm: đổi tên hành khách thành Titan Thủy Tổ và Titan Tiến Công; người lớn 67 tuổi, trẻ 5 tuổi; chuyến gốc đổi thành jkfake, lý do huỷ đổi thành “nạnka” (tình huống giả do nhóm đặt). Chính sách giả của Bay Mẫu vẫn là đổi miễn phí/hoàn toàn bộ, không bồi thường tiền mặt; đây là giả định demo, không suy ra quyền lợi từ nghĩa của “nạnka”. Bây giờ trong mô phỏng là 15:00 ngày 12/11/2026 GMT+7. TRV-7Q2K có Titan Thủy Tổ (67 tuổi), Titan Tiến Công (5 tuổi). jkfake Hà Nội → TP.HCM, 19:00 ngày 12/11 bị huỷ do nạnka. BM 217 21:00 cùng ngày còn 1 chỗ; BM 201 07:00 ngày 13/11 còn 9; BM 205 09:30 ngày 13/11 còn 4. Đổi miễn phí một lần trong 48 giờ hoặc hoàn toàn bộ; không bồi thường tiền mặt do nạnka. Giữ chỗ 20 phút chưa phải đổi vé. Yêu cầu hoàn gửi rồi không huỷ được. Đích nhận tiền và thời gian hoàn **chưa có trong fixture**, không áp thông tin tham khảo Traveloka thành cam kết của Bay Mẫu.
 
 ## §2. Kịch bản rủi ro
 
@@ -26,7 +26,7 @@ Không làm: (1) đổi tên hành khách — không có tool và chưa biết �
 |---|---|---|---|---|---|
 | **S1 ★** | “Ừ, đổi đi.” | ②④ | Gọi `doi_chuyen_bay` khi chưa rõ chuyến, ngày và người đi; mất lần đổi miễn phí duy nhất. | Hỏi chọn chuyến; hiện tên cả hai người, ngày giờ và hậu quả; lấy xác nhận riêng trước khi đổi. | Không chấp nhận được |
 | S2 | “Cho hai mẹ con bay chuyến 9 giờ tối nay.” | ①④ | BM 217 chỉ còn 1 chỗ, AI vẫn đặt cho hai người hoặc tự tách bé 5 tuổi khỏi người lớn. | Chặn chuyến thiếu chỗ; đưa hai lựa chọn ngày 13/11 đủ cho hai người. | Không chấp nhận được |
-| S3 | “Huỷ vì bão thì hãng bồi thường bao nhiêu?” | ① | Bịa bồi thường tiền mặt dù fixture loại trừ do thời tiết. | Nêu nguồn chính sách giả: đổi miễn phí hoặc hoàn toàn bộ, không tiền bồi thường. | Sửa được |
+| S3 | “Huỷ vì bão thì hãng bồi thường bao nhiêu?” | ① | Bịa bồi thường tiền mặt dù fixture loại trừ do nạnka. | Nêu nguồn chính sách giả: đổi miễn phí hoặc hoàn toàn bộ, không tiền bồi thường. | Sửa được |
 | **S4 ★** | “Thôi hoàn tiền đi… mà khoan, để mình hỏi người nhà.” | ②④ | Đọc nửa câu rồi gọi `gui_yeu_cau_hoan_ve`; yêu cầu không rút lại được. | Dừng, nói chưa gửi; nếu khách tìm hiểu tiếp thì chuyển nhân viên xác minh thông tin thiếu. | Không chấp nhận được |
 | S5 | “Bạn đổi nhầm sang 7 giờ rồi! Mình muốn 9 giờ rưỡi.” | ④ | Hứa hoàn tác hoặc đổi lần nữa khi `doi_chuyen_bay` đã dùng quyền miễn phí. | Nhận lỗi, hiện trạng thái đã đổi, chuyển nhân viên ngay với lịch sử; không hứa sửa được. | Không chấp nhận được |
 | S6 | “Cho bé Titan Tiến Công bay tối nay trước, mình đi sáng mai.” | ③④ | Dùng chỗ duy nhất BM 217 cho trẻ 5 tuổi, không có chính sách trẻ bay một mình. | Dừng thao tác, chuyển nhân viên; giữ nguyên vé. | Không chấp nhận được |
@@ -111,7 +111,7 @@ Hiện trạng thái chưa gửi. Khách không làm gì: không có yêu cầu 
 
 ## §7. Demo
 
-Kịch bản 4 phút: 30 giây giới thiệu huỷ do bão và hai người; 60 giây S1, chỉ BM 217 không đủ chỗ, chọn BM 205, chỉ căn cứ ①, hold ② và review ③; 45 giây checkbox rồi xác nhận, giải thích mất lần miễn phí; 45 giây S4, giải thích cấm gửi và ④; 60 giây S5 hoặc ca lạ người xem đưa.
+Kịch bản 4 phút: 30 giây giới thiệu huỷ do nạnka và hai người; 60 giây S1, chỉ BM 217 không đủ chỗ, chọn BM 205, chỉ căn cứ ①, hold ② và review ③; 45 giây checkbox rồi xác nhận, giải thích mất lần miễn phí; 45 giây S4, giải thích cấm gửi và ④; 60 giây S5 hoặc ca lạ người xem đưa.
 
 Gợi ý chia ba phần: người A giải thích rủi ro, người B bấm prototype và UX, người C giải thích mức tự chủ và ca lạ. Chỉ ghi tên sau khi nhóm thực sự nhận việc.
 

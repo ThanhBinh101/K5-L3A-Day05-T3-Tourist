@@ -1,6 +1,6 @@
 {
   "synthetic": true,
-  "source": "Adapted T3 course fixture; fictional Bay Mẫu airline; passenger names customized for demo",
+  "source": "Adapted T3 course fixture; fictional Bay Mẫu airline; passenger names, adult age, cancelled flight number and reason customized for demo",
   "now": "2026-11-12T15:00:00+07:00",
   "booking_id": "TRV-7Q2K",
   "booked_via": "app",
@@ -8,7 +8,7 @@
   "passengers": [
     {
       "name": "Titan Thủy Tổ",
-      "age": 34
+      "age": 67
     },
     {
       "name": "Titan Tiến Công",
@@ -16,12 +16,12 @@
     }
   ],
   "original_flight": {
-    "number": "BM 213",
+    "number": "jkfake",
     "origin": "Hà Nội",
     "destination": "TP.HCM",
     "departure": "2026-11-12T19:00:00+07:00",
     "status": "cancelled",
-    "reason": "weather_storm"
+    "reason": "nanka"
   },
   "policy": {
     "free_changes": 1,

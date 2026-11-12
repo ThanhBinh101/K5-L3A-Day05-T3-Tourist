@@ -6,7 +6,7 @@
 |---|---|---|
 | S1 mơ hồ | Ban đầu chưa đổi; chọn BM 205 hiện hai tên, ngày giờ và hậu quả; nút đổi disabled trước checkbox; sau duyệt đổi đúng BM 205, chặn đổi lần hai | Pass |
 | S2 thiếu chỗ | BM 217 hiện 1 chỗ; nút “Không đủ 2 chỗ” disabled; không tự tách trẻ | Pass |
-| S3 bồi thường | Chỉ nêu đổi/hoàn, không bồi thường tiền mặt do bão | Pass |
+| S3 bồi thường | Chỉ nêu đổi/hoàn, không bồi thường tiền mặt do nạnka | Pass |
 | S4 hoàn rồi rút ý | Chưa gửi hoàn; nút tìm hiểu hiện không huỷ được, thiếu thông tin; chuyển người mô phỏng, không hứa đã nhận | Pass |
 | S5 đổi nhầm | Fixture đã đổi BM 201; chặn đổi/hoàn; chuyển người ngay, không hứa undo | Pass |
 | S6/S7 | Trẻ đi một mình / đổi tên: hiện giới hạn, chuyển người; chưa đổi vé | Pass |
