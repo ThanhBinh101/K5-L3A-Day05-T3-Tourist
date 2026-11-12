@@ -35,7 +35,7 @@ Hỗ trợ tiếng Việt có/không dấu bằng từ khoá, không phải hi�
 
 ## Phát demo như cuộc chat của khách
 
-Chọn ca ở bên trái hoặc bấm **Phát lại cuộc hội thoại**. Lời khách tự xuất hiện từng đoạn trong ô nhập, gửi thành bong bóng “Khách hàng · Titan Thủy Tổ”, rồi hiện trạng thái trợ lý kiểm tra và phản hồi mô phỏng. Thẻ chuyến, giữ chỗ, review và bàn giao nằm ngay trong khung chat. Có thể gõ tiếp sau khi trợ lý trả lời. Chọn ca mới huỷ hiệu ứng cũ và reset toàn bộ fixture; không làm lẫn hành động giữa các ca.
+Chọn ca ở bên trái hoặc bấm **Phát lại cuộc hội thoại**. Lời khách tự xuất hiện từng đoạn trong ô nhập, gửi thành bong bóng “Khách hàng · Titan Thủy Tổ”, rồi hiện trạng thái trợ lý kiểm tra và phản hồi mô phỏng. Ô nhập nằm ngay dưới lịch sử hội thoại. Các chuyến thay thế được chèn vào lịch sử hội thoại sau phản hồi của trợ lý và chỉ hiện khi khách hỏi hoặc cần làm rõ lựa chọn. Giữ chỗ, review và bàn giao vẫn nằm trong cùng khung chat. Có thể gõ tiếp sau khi trợ lý trả lời. Chọn ca mới huỷ hiệu ứng cũ và reset toàn bộ fixture; không làm lẫn hành động giữa các ca.
 
 Hiệu ứng gõ và thời gian trả lời chỉ phục vụ trình diễn, không phải một model đang suy luận. Bước đổi vé vẫn cần checkbox và nút xác nhận; chat không thể tự thực thi đổi/hoàn.
 

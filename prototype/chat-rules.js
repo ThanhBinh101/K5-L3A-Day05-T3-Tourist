@@ -9,6 +9,7 @@ function classifyChat(input){
  if(/nhan vien|nguoi ho tro|ho tro vien|human|staff/.test(t))return {type:'handoff'};
  if(/boi thuong|den bu|compensation/.test(t))return {type:'compensation'};
  if(/hoan|huy het|huy ve|refund/.test(t))return {type:'refund'};
+ if(/chuyen nao|chuyen thay the|con cho|co cho|tim chuyen|cac chuyen|xem chuyen|lua chon chuyen/.test(t))return {type:'flights'};
  if(/may gio|trang thai|chuyen cua|status/.test(t))return {type:'status'};
  const matches=[...new Set((t.match(/\b(?:201|205|217)\b/g)||[]))];
  if(matches.length>1)return {type:'ambiguous'};
