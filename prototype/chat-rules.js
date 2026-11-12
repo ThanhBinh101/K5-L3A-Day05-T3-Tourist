@@ -2,6 +2,7 @@
 function classifyChat(input){
  const t=input.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').replace(/Đ/g,'D').toLowerCase().replace(/\s+/g,' ').trim();
  if(/bo qua|bo buoc|bo xac nhan|toi la nhan vien|ignore|bypass/.test(t))return {type:'injection'};
+ if(/(?:217|21:00|21h|9 gio toi)/.test(t)&&/hoan|refund/.test(t))return {type:'split'};
  if(/doi nham|doi sai|wrong flight/.test(t))return {type:'wrong'};
  if(/mot minh|bay truoc/.test(t)&&/be|binh|tre|con/.test(t))return {type:'child'};
  if(/doi ten|sang ten/.test(t))return {type:'name'};

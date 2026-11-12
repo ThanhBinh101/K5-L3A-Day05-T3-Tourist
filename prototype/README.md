@@ -59,3 +59,5 @@ Cú pháp nhập key trên dành cho zsh của macOS. Key chỉ ở biến môi 
 Model mặc định `gpt-5.4-mini`; đổi bằng `OPENAI_MODEL` nếu tài khoản có quyền model khác. Giá tham khảo theo tài liệu chính thức: $0.75/1M input tokens và $4.50/1M output tokens; xem https://developers.openai.com/api/docs/models/gpt-5.4-mini trước khi dùng. Cần key có quyền model và quota. Giới hạn 16 tin gần nhất, output 700 token, timeout 40 giây; lỗi API hiện rõ, không giả làm phản hồi AI. Không có key thì vẫn chọn Mô phỏng được.
 
 Server chỉ bind localhost và chỉ phục vụ `prototype/`; không triển khai server này công khai. Gửi tin sẽ chuyển hội thoại gần đây và fixture giả tới OpenAI. Chỉ dùng dữ liệu hư cấu của lab.
+
+Ca S9: chọn “PA 217 cho Thủy Tổ, hoàn vé Tiến Công”. Demo nhắc lại hai thao tác theo từng người, chưa đổi/hoàn, chuyển nhân viên kiểm tra tách đặt chỗ và người chăm sóc bé. Không báo thiếu chỗ vì người lớn chỉ cần 1 ghế.

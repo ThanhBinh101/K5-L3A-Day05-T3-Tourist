@@ -7,6 +7,7 @@ let conversation=[];
 let apiController;
 let sessionVersion=0;
 const demoInputs={
+ split:'Đặt 1 vé PA 217 lúc 21:00 cho Titan Thủy Tổ, hoàn vé cho Titan Tiến Công.',
  ambiguous:'Ừ, đổi đi.',seats:'Cho hai mẹ con bay chuyến 9 giờ tối nay nhé.',
  compensation:'Chuyến huỷ do Rung chấn thì mình được bồi thường bao nhiêu?',
  refund:'Thôi hoàn tiền đi… mà khoan, để mình hỏi người nhà.',
@@ -37,6 +38,7 @@ function playDemo(){
     bubble('activity','Đã kiểm tra đặt chỗ TRV-7Q2K · 2 hành khách · chính sách YmirAirline (dữ liệu giả).');
     say(messages[state.scenario]);
     if(state.scenario==='wrong'){state.changed=true;log('Fixture lỗi S5: đã đổi nhầm sang PA 201, miễn phí còn 0.');handoff('Khách báo đổi nhầm; cần nhân viên xác minh phương án khắc phục.');}
+    if(state.scenario==='split')handoff('Tách đặt chỗ: PA 217 lúc 21:00 cho Titan Thủy Tổ; hoàn vé Titan Tiến Công. Cần xác minh trẻ có người chăm sóc, điều kiện tách/hoàn và duyệt riêng. Chưa thực hiện thao tác nào.');
     if(['child','name'].includes(state.scenario))handoff(state.scenario==='child'?'Trẻ 5 tuổi bay một mình.':'Yêu cầu đổi tên hành khách.');
     render();
    });
@@ -44,6 +46,7 @@ function playDemo(){
  },28);
 }
 const messages = {
+ split:'Bạn muốn đổi riêng Titan Thủy Tổ (67 tuổi) sang PA 217 · 12/11/2026 · 21:00 và hoàn vé Titan Tiến Công (5 tuổi). PA 217 còn 1 chỗ, nhưng đây là yêu cầu tách đặt chỗ có trẻ em. Tôi chưa đổi vé và chưa gửi hoàn. Yêu cầu hoàn gửi rồi không huỷ được; nơi nhận và thời gian hoàn chưa xác minh. Tôi chuyển nhân viên kiểm tra việc tách đặt chỗ, người chăm sóc bé và điều kiện hoàn từng hành khách, rồi lấy xác nhận riêng cho từng thao tác. Không thực hiện một phần trước khi toàn bộ phương án được làm rõ.',
  ambiguous:'“Ừ, đổi đi” chưa cho biết chuyến nào. Tôi chưa đổi vé. Hãy chọn chuyến; bạn sẽ kiểm tra lại cả hai hành khách trước khi xác nhận.',
  seats:'PA 217 tối nay chỉ còn 1 chỗ, không đủ cho 2 người. Tôi không tự tách người lớn và trẻ em. Hai chuyến ngày 13/11 dưới đây còn đủ chỗ.',
  compensation:'Theo chính sách YmirAirline trong dữ liệu dựng, huỷ do Rung chấn không được bồi thường tiền mặt. Bạn được đổi miễn phí một lần hoặc hoàn toàn bộ.',
@@ -101,6 +104,7 @@ function sendChat(event){
 }
 function respondChat(text){
  const intent=classifyChat(text);
+ if(intent.type==='split'){say(messages.split);handoff('Khách yêu cầu đổi riêng người lớn PA 217 và hoàn vé trẻ; cần kiểm tra tách đặt chỗ, người chăm sóc và duyệt riêng từng hành khách.');return;}
  if(intent.type==='injection'){say(messages.injection);return;}
  if(intent.type==='wrong'){say('Bạn báo đổi nhầm. Tôi chưa tự sửa hoặc hoàn tác vé; cần nhân viên kiểm tra trạng thái và lịch sử. Tôi không bảo đảm đổi lại được.');handoff('Khách báo đổi nhầm qua chat; cần kiểm tra, không tự kết luận đã đổi.');return;}
  if(intent.type==='handoff'){say('Tôi chuyển nội dung cho nhân viên trong mô phỏng. Chưa có người nhận hoặc thời gian chờ xác minh.');handoff('Khách yêu cầu hỗ trợ qua chat.');return;}

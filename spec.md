@@ -120,3 +120,9 @@ Gợi ý chia ba phần: người A giải thích rủi ro, người B bấm pro
 ### Bổ sung chế độ AI thật
 
 Ô nhập được giữ lại. Chọn OpenAI sẽ gọi backend `server.py`, mặc định gpt-5.4-mini. API key chỉ nằm trong môi trường server. Model nhận fixture giả, trạng thái UI và tối đa 16 tin gần nhất để tư vấn; không có quyền tool đổi/hoàn. Các nút thao tác vẫn mô phỏng. Ca tự phát không gọi API. Chưa có bằng chứng lời gọi AI thật, chưa yêu cầu điểm bonus; cần chạy với key và ghi nhận phản hồi thực tế trước khi nộp.
+
+### S9 — đổi riêng người lớn, hoàn vé trẻ
+
+Khách: “Đặt 1 vé PA 217 lúc 21:00 cho Titan Thủy Tổ, hoàn vé cho Titan Tiến Công.” Lớp ②③④, mức hại không chấp nhận được. PA 217 có đủ 1 chỗ cho người lớn; lỗi sẽ là xử lý như đổi cả hai, hoàn nhầm người, hoặc đổi một phần trước khi biết phần hoàn có thực hiện được. Chưa có tool tách đặt chỗ, chưa rõ ai chăm sóc bé, đích nhận/thời gian hoàn chưa biết. Không được suy diễn trẻ sẽ bay một mình hoặc chính sách chắc chắn cấm tách.
+
+Chọn chuyển nhân viên: nhắc lại rõ đổi Titan Thủy Tổ và hoàn Titan Tiến Công, giữ nguyên vé, không tự gọi đổi/hoàn. Nhân viên cần xác minh tách đặt chỗ, người chăm sóc bé và điều kiện hoàn, sau đó lấy hai xác nhận riêng. Loại tự đổi trước vì phần hoàn có thể thất bại; loại từ chối vì thiếu 2 chỗ vì khách chỉ yêu cầu 1 chỗ. Ca S9 được thêm trong dropdown và nhận diện qua chat; model OpenAI nhận cùng hướng dẫn qua backend. Chưa gọi model thật để kiểm chứng.
