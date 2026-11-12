@@ -1,46 +1,22 @@
-# LAB5 — T3 Du lịch · Nhóm Tourist
+# Tourist · LAB5 T3 Du lịch
 
-Bộ khởi tạo cho lớp **L3A**, track **T3**. Bài thiết kế UX và mức tự chủ khi AI sai; không yêu cầu agent, backend, API key hay cài package.
+Thiết kế trợ lý đổi chuyến khi chuyến bị huỷ: AI tìm và giữ phương án, khách duyệt trước khi đổi, nhân viên xử lý ngoại lệ. Dữ liệu hoàn toàn giả của hãng Bay Mẫu.
 
-## Bắt đầu
+- [Spec: phạm vi, 8 rủi ro, UX khi sai, mức tự chủ, demo](spec.md)
+- [Prototype HTML](prototype/index.html) — tải repo rồi mở bằng trình duyệt
+- [Cách chạy và bấm thử](prototype/README.md)
+- [Kết quả kiểm tra](prototype/QA.md)
 
-1. Điền đúng 3 thành viên và phân công thực tế ở đầu [spec.md](spec.md).
-2. Hoàn thiện ≥8 kịch bản phủ 4 lớp; chọn 2 ca có cái giá khi sai cao nhất.
-3. Viết câu AI nói, bằng chứng, bước sửa lỗi; chốt mức cho đủ 5 tool và lý do.
-4. Dựng prototype theo [prototype/README.md](prototype/README.md), dùng [fixture giả](prototype/fixtures/booking.json).
-5. Chụp 1–2 ảnh đánh số và đối chiếu nguyên tắc HAX/PAIR trong spec.
+Không cần API key hay cài dependency. Không AI thật, không kết nối hãng bay. GitHub hiển thị mã HTML; để bấm giao diện hãy mở file local hoặc chạy server theo hướng dẫn.
 
-**Đây là scaffold, chưa phải bài nộp hoàn chỉnh.** Không ghi kết quả kiểm thử, thảo luận nhóm hoặc demo khi chưa thực hiện.
+![Prototype review](prototype/screenshots/01-review.jpg)
 
-## Tài liệu gốc
+## Trước khi nộp
 
-- [Tổng quan & quy định nộp](https://github.com/VinUni-AI20k/K5-L3-Day05-AI-Product-UX-Autonomy/blob/main/README.md)
-- [Đề bài](https://github.com/VinUni-AI20k/K5-L3-Day05-AI-Product-UX-Autonomy/blob/main/01-challenge-brief.md)
-- [Hướng dẫn 6 chặng](https://github.com/VinUni-AI20k/K5-L3-Day05-AI-Product-UX-Autonomy/blob/main/02-guide.md)
-- [Track T3](https://github.com/VinUni-AI20k/K5-L3-Day05-AI-Product-UX-Autonomy/blob/main/tracks/t3-travel.md)
-- [Rubric](https://github.com/VinUni-AI20k/K5-L3-Day05-AI-Product-UX-Autonomy/blob/main/04-rubric.md)
+- [ ] Điền đúng 3 thành viên, mã học viên, bàn/zone và phân công thực tế ở đầu spec.
+- [ ] Nhóm tự xếp mức cho các tool, ghi khác biệt và quyết định thật; mỗi người hiểu phần của mình.
+- [ ] Bổ sung ca lạ nhận tại demo và điều chỉnh sau demo.
+- [ ] Kiểm tra repo công khai và chọn đúng nhánh có bài hoàn thiện khi nộp.
+- [ ] Nộp trước 23:59 ngày 12/11/2026 GMT+7 theo kênh giảng viên thông báo.
 
-Chỉ lấy dàn ý spec từ đề; không đưa toàn bộ đề hoặc prototype mẫu vào repo nộp.
-
-## Mốc làm việc
-
-| Mốc | Cần có |
-|---|---|
-| M1 — phút 45 | ≥8 ca, đủ 4 lớp, bằng chứng cụ thể, chọn 2 ca đắt nhất |
-| M2 — phút 125 | 5 tool có mức và lý do; thử trên 2 ca đắt nhất + 1 ca thường |
-| M3 — phút 200 | Bấm hết ca khó; thấy ≥2 mức tự chủ; HAX/PAIR trỏ vào giao diện |
-
-75/100 điểm nằm ở UX khi sai, mức tự chủ và prototype. Cần lập luận cả phương án chọn và phương án loại.
-
-## Checklist nộp
-
-- [ ] Repo mới, công khai, tên `K5-L3A-Day05-T3-Tourist`; xác minh mở được ở cửa sổ ẩn danh.
-- [ ] `spec.md` hoàn thiện, đúng 3 thành viên và mã học viên.
-- [ ] `prototype/` có file hoặc link bấm được + 1–2 ảnh đánh số.
-- [ ] Mỗi người giải thích được phần của mình; ghi ca lạ sau demo.
-- [ ] Không có key hoặc dữ liệu người thật.
-- [ ] Nộp link repo trước **23:59 ngày 12/11/2026 (GMT+7)** theo kênh giảng viên thông báo.
-
-Origin hiện có: https://github.com/ThanhBinh101/K5-L3A-Day05-T3-Tourist
-
-Trạng thái public trên GitHub chưa được xác minh; bộ khởi tạo chưa commit hoặc push.
+Nguồn: [đề LAB5](https://github.com/VinUni-AI20k/K5-L3-Day05-AI-Product-UX-Autonomy), [track T3](https://github.com/VinUni-AI20k/K5-L3-Day05-AI-Product-UX-Autonomy/blob/main/tracks/t3-travel.md). Chỉ dùng template spec và fixture từ đề, không đưa toàn bộ đề hoặc prototype mẫu vào bài.

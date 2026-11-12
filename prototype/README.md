@@ -1,28 +1,22 @@
-# Prototype T3 — Tourist
+# Tourist — prototype T3
 
-Trạng thái: chưa dựng giao diện. Không có lời gọi AI thật; không cần API key.
-
-## Phạm vi cần dựng
-
-- 1–2 màn hình bấm được, dùng dữ liệu giả ở [fixtures/booking.json](fixtures/booking.json).
-- Chọn ca **khách xác nhận mơ hồ** hoặc **trợ lý vừa đổi nhầm**. Không dùng ca “đổi sang sáng mai” của mẫu giảng viên làm demo chính.
-- Hiện căn cứ (chuyến, giờ, số chỗ, hành khách), mức tự chủ, xác nhận trước hành động khó đảo, và đường chuyển nhân viên.
-- Không hứa hoàn tác việc không thể đảo. Giữ chỗ 20 phút không đồng nghĩa đã đổi vé.
-- BM 217 chỉ còn 1 chỗ, không đủ cho cả người lớn và trẻ em trong đặt chỗ.
-- Chỉ mô phỏng; không gọi hãng bay, không dùng dữ liệu khách thật.
-
-## Trước khi nộp
-
-- [ ] Thêm `index.html` hoặc link prototype truy cập được tại đây.
-- [ ] Thêm 1–2 ảnh có đánh số vị trí và liên kết ảnh vào `spec.md` §5.
-- [ ] Mỗi số trỏ tới nguyên tắc HAX/PAIR và mức tự chủ tương ứng.
-- [ ] Bấm hết ca khó, rồi thử một ca lạ; ghi kết quả thực tế.
-- [ ] Ghi rõ phần mock và việc có/không có AI thật.
-
-Nếu làm HTML tĩnh, chạy tại thư mục repo:
+Mở `index.html` trực tiếp bằng trình duyệt, hoặc chạy từ thư mục repo:
 
 ```bash
 python3 -m http.server 8000 --directory prototype
 ```
 
-Sau khi có `index.html`, mở http://localhost:8000. Hiện tại lệnh chỉ phục vụ thư mục tài liệu và fixture.
+Mở http://localhost:8000. Không cần package, tài khoản, API key hoặc backend.
+
+## Bấm thử
+
+1. Chọn S1: “Ừ, đổi đi”. BM 217 bị chặn vì chỉ 1 chỗ.
+2. Giữ 2 chỗ BM 205. Kiểm tra đồng hồ, hai tên và cảnh báo mất quyền đổi.
+3. Nút đổi bị khoá cho tới khi tick xác nhận. Bấm đổi, lần miễn phí còn 0, không thể đổi thêm.
+4. Chọn S4, bấm tìm hiểu hoàn: cảnh báo không huỷ được và thiếu thông tin; chỉ chuyển người, không gửi hoàn.
+5. Chọn S5: lỗi đã đổi nhầm, chuyển nhân viên, không hứa undo.
+6. Thử hết hạn, hết chỗ, bé đi một mình, đổi tên và tin tự xưng nhân viên từ dropdown.
+
+Dropdown chọn kịch bản cố định, không phải model xử lý ngôn ngữ. Tất cả là mô phỏng với dữ liệu giả [booking.json](fixtures/booking.json). `app.js` dùng bản dữ liệu tương ứng để trang chạy được khi mở file trực tiếp. Không gọi mạng, không lưu bền dữ liệu, không gửi yêu cầu thật. Reload/chọn ca reset mô phỏng. Nút bỏ giữ cần API bổ sung trong sản phẩm thật; tool gốc chỉ bảo đảm tự nhả sau 20 phút.
+
+Ảnh có số ①②③④ ở [screenshots](screenshots/), ánh xạ nguyên tắc trong [spec](../spec.md). Kết quả thử: [QA.md](QA.md).
