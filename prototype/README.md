@@ -41,4 +41,4 @@ Hiệu ứng gõ và thời gian trả lời chỉ phục vụ trình diễn, kh
 
 ## Bối cảnh AOT
 
-Biến thể giả tưởng: Paradis Air, đảo Paradis → Marley, PA 213 huỷ do Rung chấn; các chuyến thay thế PA 217, PA 201, PA 205. Mã PA chỉ để trình diễn, không tuyên bố là mã hãng đăng ký. Theme lấy cảm hứng hồ sơ quân đoàn: xanh quân phục, giấy cũ, viền kim loại, cảnh báo đỏ. Bong bóng khách vẫn xanh, trợ lý trắng, hoạt động vàng.
+Biến thể giả tưởng: YmirAirline, Paradis → Marley, PA 213 huỷ do Rung chấn; các chuyến thay thế PA 217, PA 201, PA 205. Mã PA chỉ để trình diễn, không tuyên bố là mã hãng đăng ký. Theme lấy cảm hứng hồ sơ quân đoàn: xanh quân phục, giấy cũ, viền kim loại, cảnh báo đỏ. Bong bóng khách vẫn xanh, trợ lý trắng, hoạt động vàng.

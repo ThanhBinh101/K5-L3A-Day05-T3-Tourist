@@ -1,6 +1,6 @@
 {
   "synthetic": true,
-  "source": "Adapted T3 course fixture; fictional Paradis Air airline; passenger names, adult age, cancelled flight number and reason customized for demo",
+  "source": "Adapted T3 course fixture; fictional YmirAirline airline; passenger names, adult age, cancelled flight number and reason customized for demo",
   "now": "2026-11-12T15:00:00+07:00",
   "booking_id": "TRV-7Q2K",
   "booked_via": "app",
@@ -17,7 +17,7 @@
   ],
   "original_flight": {
     "number": "PA 213",
-    "origin": "đảo Paradis",
+    "origin": "Paradis",
     "destination": "Marley",
     "departure": "2026-11-12T19:00:00+07:00",
     "status": "cancelled",
