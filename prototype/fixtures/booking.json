@@ -1,0 +1,56 @@
+{
+  "synthetic": true,
+  "source": "T3 course fixture; fictional Bay Mẫu airline",
+  "now": "2026-11-12T15:00:00+07:00",
+  "booking_id": "TRV-7Q2K",
+  "booked_via": "app",
+  "fare_class": "Phổ thông Tiết kiệm",
+  "passengers": [
+    {
+      "name": "Nguyễn Minh An",
+      "age": 34
+    },
+    {
+      "name": "Nguyễn Gia Bình",
+      "age": 5
+    }
+  ],
+  "original_flight": {
+    "number": "BM 213",
+    "origin": "Hà Nội",
+    "destination": "TP.HCM",
+    "departure": "2026-11-12T19:00:00+07:00",
+    "status": "cancelled",
+    "reason": "weather_storm"
+  },
+  "policy": {
+    "free_changes": 1,
+    "change_window_hours": 48,
+    "full_refund_available": true,
+    "cash_compensation_for_weather": false,
+    "hold_minutes": 20,
+    "refund_request_reversible": false
+  },
+  "alternatives": [
+    {
+      "number": "BM 217",
+      "departure": "2026-11-12T21:00:00+07:00",
+      "seats_available": 1
+    },
+    {
+      "number": "BM 201",
+      "departure": "2026-11-13T07:00:00+07:00",
+      "seats_available": 9
+    },
+    {
+      "number": "BM 205",
+      "departure": "2026-11-13T09:30:00+07:00",
+      "seats_available": 4
+    }
+  ],
+  "unknowns": [
+    "refund destination for this booking",
+    "refund processing duration for this booking"
+  ],
+  "unknowns_note": "The fictional booking does not specify these; do not present real-product reference details as confirmed booking facts."
+}
